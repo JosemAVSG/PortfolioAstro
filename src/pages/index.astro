@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Header from "../components/Header.astro";
 import Badge from "../components/Badge.astro";
+import Linkedin from '../icons/Linkedin.astro';
+import Github from '../icons/Github.astro';
+import Codepen from "../icons/Codepen.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -22,7 +25,7 @@ import Badge from "../components/Badge.astro";
 			><Badge>Open to Work</Badge></a>
 		</div>
       <h1 class="text-white text-4xl font-bold flex flex-row gap-x-4 pb-4">
-        🙋‍♂️Bienvenido a mi Portafolio🚀
+        🙋‍♂️Hola, Soy Jose Gonzalez🚀
       </h1>
       <h2 class="text-xl opacity-80">
         Un gusto y bienvenido a mi portafolio. Espero que encuentres algo de
@@ -30,6 +33,11 @@ import Badge from "../components/Badge.astro";
         y encontrar información útil acerca de mi carrera y experiencia como
         desarrollador web. ¡Que tengas un buen día!
       </h2>
+	  <ul class="flex flex-row gap-x-4 mt-4">
+		<li class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"><a class="flex flex-col justify-center items-center" href="https://www.linkedin.com/in/josemavsg"><Linkedin class:list={['w-10 h-10']} /> Linkedin</a></li>
+		<li class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"><a class="flex flex-col justify-center items-center" href="https://github.com/JosemAVSG"><Github class:list={['w-10 h-10']} /> Github</a></li>
+		<li class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"><a class="flex flex-col justify-center items-center" href="https://codepen.io/JosemAVSG"><Codepen class:list={['w-10 h-10']} /> CodePen</a></li>
+	  </ul>
     </section>
   </main>
 </Layout>
