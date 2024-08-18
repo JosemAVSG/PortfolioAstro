@@ -1,11 +1,11 @@
-<header class="flex justify-center py-5 items-center w-[1120px] mx-auto sticky top-0">
+<header class="flex justify-center py-5 items-center w-[1120px] mx-auto sticky top-0 z-[3]">
     
-    <nav id="navbar" class="flex flex-row gap-x-10  rounded-full border-2 px-8 py-2">
+    <nav id="navbar" class="flex flex-row gap-x-10 rounded-full  px-8 py-2">
         <ul class="flex gap-4">
-            <li class="hover:text-[#f9f871] hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="/">Home</a></li>
-            <li class="hover:text-[#f9f871] hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="#experience">Experience</a></li>
-            <li class="hover:text-[#f9f871] hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="#about">About</a></li>
-            <li class="hover:text-[#f9f871] hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="#contact">Contact</a></li>
+            <li class="hover:text-primary hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="/">Home</a></li>
+            <li class="hover:text-primary hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="#experience">Experience</a></li>
+            <li class="hover:text-primary hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="#about">About</a></li>
+            <li class="hover:text-primary hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 </header>
@@ -16,11 +16,11 @@
   
       window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
-          navbar?.classList.add("bg-[#0f172a]", "shadow-md", 'opacity-100' );
-          navbar?.classList.remove("bg-transparent",'opacity-80' );
+          navbar?.classList.add("bg-slate-500", "shadow-md", );
+          navbar?.classList.remove("bg-transparent", );
         } else {
-          navbar?.classList.add("bg-transparent",'opacity-80' );
-          navbar?.classList.remove("bg-[#0f172a]", "shadow-md", 'opacity-100' );
+          navbar?.classList.add("bg-transparent", );
+          navbar?.classList.remove("bg-slate-500", "shadow-md" );
         }
       });
     });

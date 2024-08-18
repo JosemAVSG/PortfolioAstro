@@ -41,5 +41,11 @@ const {description, title } = Astro.props;
 		min-height: 100vh;
 		background-color: #0D0D0D;
 		color: #ffffff;
+		scroll-behavior: smooth;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		html{
+			scroll-behavior: auto;
+		}
 	}
 </style>
