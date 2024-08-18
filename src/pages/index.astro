@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Header from "../components/Header.astro";
 import Badge from "../components/Badge.astro";
 import Linkedin from '../icons/Linkedin.astro';
 import Github from '../icons/Github.astro';
@@ -9,6 +7,8 @@ import Codepen from "../icons/Codepen.astro";
 import Experience from "../components/Experience.astro";
 import Briefcase from "../icons/Briefcase.astro";
 import SectionContainer from "../components/SectionContainer.astro";
+import Stack from "../icons/Stack.astro";
+import Projects from "../components/Projects.astro";
 ---
 
 <Layout title="Portfolio de Jose Gonzalez - Full Stack Web Developer" 
@@ -50,6 +50,11 @@ description="Descubre el portafolio de Jose Gonzalez, un talentoso desarrollador
 		 <h2 class="flex items-center gap-4 text-white text-3xl font-semibold mb-4"><Briefcase class:list={['size-10']} />Experiencia Laboral</h2>
 		<Experience />
 	</SectionContainer>
+
+	<SectionContainer id="projects" class:list={['w-full mx-auto lg:w-[740px] py-20']}>
+		<h2 class="flex items-center gap-4 text-white text-3xl font-semibold mb-4"><Stack class:list={['size-10']} />Proyectos</h2>
+	   <Projects />
+   </SectionContainer>
 	
   </main>
 </Layout>
