@@ -1,18 +1,35 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Header from '../components/Header.astro';
-import Badge from '../components/Badge.astro';
-
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
+import Badge from "../components/Badge.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-	<section class="w-full mx-auto lg:w-[740px] py-44">
-	<h1 class="text-white text-4xl font-bold flex flex-row  gap-x-4 pb-4 ">🙋‍♂️Bienvenido a mi Portafolio🚀<a  class="flex justify-center items-center"><Badge>Opent to Work</Badge></a></h1>
-	<h2 class="text-xl opacity-80">Un gusto y bienvenido a mi portafolio. Espero que encuentres algo de interés y que pueda servirte de ayuda. Te invito a explorar este espacio y encontrar información útil acerca de mi carrera y experiencia como desarrollador web. ¡Que tengas un buen día! </h2>
-	</section>
-	</main>
+  <main>
+	  <section class="w-full mx-auto lg:w-[740px] py-44">
+		<div class="flex flex-row gap-x-4 items-center mb-4">
+			<img
+			  class="w-20 h-20 rounded-full"
+			  src="https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4"
+			  alt="Avatar"
+			/>
+			<a
+			href="https://www.linkedin.com/in/josemavsg"
+			target="_blank"
+			rel="noopener"
+			class="flex justify-center items-center "
+			><Badge>Open to Work</Badge></a>
+		</div>
+      <h1 class="text-white text-4xl font-bold flex flex-row gap-x-4 pb-4">
+        🙋‍♂️Bienvenido a mi Portafolio🚀
+      </h1>
+      <h2 class="text-xl opacity-80">
+        Un gusto y bienvenido a mi portafolio. Espero que encuentres algo de
+        interés y que pueda servirte de ayuda. Te invito a explorar este espacio
+        y encontrar información útil acerca de mi carrera y experiencia como
+        desarrollador web. ¡Que tengas un buen día!
+      </h2>
+    </section>
+  </main>
 </Layout>
-
-
