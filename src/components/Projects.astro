@@ -4,6 +4,10 @@ import Next from "../icons/Next.astro";
 import Tailwind from "../icons/Tailwind.astro";
 import Express from "../icons/Express.astro";
 import Typescript from "../icons/Typescript.astro";
+import LinkButton from "./LinkButton.astro";
+import Link from '../icons/Link.astro';
+import GitHub from '../icons/Github.astro';
+
 const TAGS = {
   REACT: {
     name: "React",
@@ -39,7 +43,7 @@ const PROJECTS = [
     description:
       "Portfolio para Manuel Blanco,  un talentoso desarrollador web Full Stack con mas de 5 años de  experiencia en tecnologías modernas como React, Next.js, Nuxtjs, Node.js, y más.",
     tags: [TAGS.REACT, TAGS.NEXT, TAGS.TAILWIND],
-    github: "",
+    github: "https://github.com/JosemAVSG/manu_portfolio",
     link: "",
     image: "https://via.placeholder.com/300x200",
   },
@@ -48,7 +52,7 @@ const PROJECTS = [
     description:
       "Sistema de Gestión de Citas, un proyecto de tecnologías modernas como React, Next.js, Node.js, y más.",
     tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.EXPRESS],
-    github: "",
+    github: "https://github.com/JosemAVSG/Sistema-de-Citas-PetCare",
     link: "",
     image: "https://via.placeholder.com/300x200",
   },
@@ -57,7 +61,7 @@ const PROJECTS = [
     description:
       "Sistema de Inventario, un proyecto de tecnologías modernas como React, Next.js, Node.js, y más.",
     tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.EXPRESS],
-    github: "",
+    github: "https://github.com/JosemAVSG/Sistema-de-inventario-Client",
     link: "",
     image: "https://via.placeholder.com/300x200",
   },
@@ -66,8 +70,8 @@ const PROJECTS = [
     description:
       "Mi portfolio cuando no tenia mucha experiencia en tecnologias como React, Next.js, Node.js, y más.",
     tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.EXPRESS],
-    github: "",
-    link: "",
+    github: "https://github.com/JosemAVSG/PM4-JosemAVSG",
+    link: "https://nest-demo-latest-plw3.onrender.com/api",
     image: "https://via.placeholder.com/300x200",
   },
 ];
@@ -89,6 +93,21 @@ const PROJECTS = [
         ))}
       </ul>
       <p class="text-lg  mb-2 text-pretty">{description}</p>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
     </div>
     <div class="w-full md:w-1/2">
 
@@ -98,6 +117,7 @@ const PROJECTS = [
         alt={`Screenshot of ${title}`}
       />
     </div>
+    
     </article>
   ))
 }

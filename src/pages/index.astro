@@ -10,6 +10,7 @@ import SectionContainer from "../components/SectionContainer.astro";
 import Stack from "../icons/Stack.astro";
 import Projects from "../components/Projects.astro";
 import Aboutme from "../components/Aboutme.astro";
+import User from "../components/User.astro";
 ---
 
 <Layout title="Portfolio de Jose Gonzalez - Full Stack Web Developer" 
@@ -28,7 +29,7 @@ description="Descubre el portafolio de Jose Gonzalez, un talentoso desarrollador
 			href="https://www.linkedin.com/in/josemavsg"
 			target="_blank"
 			rel="noopener"
-			class="flex justify-center items-center "
+			class="flex justify-center items-center md:hover:scale-110 transition-all duration-500 ease-in-out"
 			><Badge>Open to Work</Badge></a>
 		</div>
 	  <h1 class="text-white text-2xl lg:text-4xl font-bold flex flex-row gap-x-4 pb-4">
@@ -58,7 +59,7 @@ description="Descubre el portafolio de Jose Gonzalez, un talentoso desarrollador
    </SectionContainer>
 
    	<SectionContainer class:list={['w-full mx-auto lg:w-[900px] py-44']}>
-		<h2 class="flex items-center gap-4 text-white text-3xl font-semibold mb-4">Acerca de mi</h2>
+		<h2 class="flex items-center gap-4 text-white text-3xl font-semibold mb-4"><User class:list={['size-10']} /> Acerca de mi</h2>
 		<Aboutme />
 	</SectionContainer>
    
