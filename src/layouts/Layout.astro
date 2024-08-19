@@ -20,8 +20,9 @@ const {description, title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="relative  dark:text-white">
-		<div class="absolute top-0 z-[-2] min-h-full w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_30%_-50%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+	<body class="relative text-black dark:text-white">
+		<div class="absolute top-0 z-[-2] min-h-full w-screen bg-slate-500 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(200,200,200,0.3),rgba(105,255,255,0))]
+		 dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_30%_-50%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
 		<Header />
 		<slot />
 		<Footeer/>
