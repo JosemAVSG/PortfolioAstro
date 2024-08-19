@@ -1,0 +1,77 @@
+---
+ const personalImageAlt = "Jose Gonzalez"
+---
+
+<article class="flex flex-col items-center justify-center gap-8 text-gray-200 dark:text-gray-300 md:flex-row-reverse">
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-primary dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+        Mi nombre es Jose Miguel, pero me dicen Miguel o Jose. Tengo 28 años vivo en colombia pero soy de Venezuela,
+         actualmente trabajo como<strong>
+         Tecnico en reparacion de computadoras y dispositivos moviles</strong>.
+    </p>
+
+    <p>
+        Me considero una persona responsable, amable y comprometida.
+        Me gusta tocar la guitarra y escuchar música de vez en cuando y jugar videojuegos como LOL , 
+        CS:GO y World of Warcraft.
+    </p>
+    <p>
+        En la universidad, obtuve mi título de Técnico Superior Universitario (TSU) en Informática, dando mi 
+        primeros pasos en la programacion web.
+    </p>
+  </div>
+  <div class="hero-img">
+    <div class="circulo"></div>
+    <img width="200" height="200" src="https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4" alt={personalImageAlt} class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 " >
+  </div>
+
+</article>
+
+<style>
+.hero-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.35s ease-in-out;
+}
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  animation: none;
+}
+.hero-img img {
+  border-radius: 1000px;
+  transition: all 0.35s ease-in-out;
+}
+.circulo {
+  transition-property: transform;
+  animation-name: rotate-center;
+  animation-duration: 5.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: all 0.35s ease-in-out;
+}
+.circulo {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 100px #f9f871;
+  border-radius: 50%;
+  border-style:dotted inset outset;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
