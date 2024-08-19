@@ -1,42 +1,55 @@
 ---
+
+import Link from '../icons/Link.astro';
+import GitHub from '../icons/Github.astro';
+import inventory from '../assets/inventory.webp';
+import LinkButton from "./LinkButton.astro";
 import React from "../icons/React.astro";
 import Next from "../icons/Next.astro";
 import Tailwind from "../icons/Tailwind.astro";
 import Express from "../icons/Express.astro";
 import Typescript from "../icons/Typescript.astro";
-import LinkButton from "./LinkButton.astro";
-import Link from '../icons/Link.astro';
-import GitHub from '../icons/Github.astro';
-import inventory from '../assets/inventory.webp';
-const TAGS = {
-  REACT: {
-    name: "React",
-    class: "bg-[#003159] text-white",
-    icon: React,
-  },
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: Next,
-  },
-  TAILWIND: {
-    name: "Tailwindcss",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
+import TypeORm from "../icons/TypeORm.astro";
+import Nestjs from "../icons/Nestjs.astro";
 
-  EXPRESS: {
-    name: "Express",
-    class: "bg-black text-white",
-    icon: Express,
-  },
-  TYPESCRIPT: {
-    name: "Typescript",
-    class: "bg-white/10",
-    icon: Typescript,
-  },
-};
-
+export const TAGS = {
+    REACT: {
+      name: "React",
+      class: "bg-[#003159] text-white",
+      icon: React,
+    },
+    NEXT: {
+      name: "Next.js",
+      class: "bg-black text-white",
+      icon: Next,
+    },
+    TAILWIND: {
+      name: "Tailwindcss",
+      class: "bg-[#003159] text-white",
+      icon: Tailwind,
+    },
+  
+    EXPRESS: {
+      name: "Express",
+      class: "bg-black text-white",
+      icon: Express,
+    },
+    TYPESCRIPT: {
+      name: "Typescript",
+      class: "bg-white/10",
+      icon: Typescript,
+    },
+    TYPEORM:{
+      name: "TypeORM",
+      class: "bg-white/10",
+      icon: TypeORm,
+    },
+    NESTJS:{
+      name: "Nestjs",
+      class: "bg-white/10",
+      icon: Nestjs,
+    }
+  };
 const PROJECTS = [
   {
     title: "Portoflio",
@@ -68,8 +81,8 @@ const PROJECTS = [
   {
     title: "E-commerce app Backend",
     description:
-      "Mi portfolio cuando no tenia mucha experiencia en tecnologias como React, Next.js, Node.js, y más.",
-    tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.EXPRESS],
+      "Api Rest para E-commerce",
+    tags: [TAGS.TYPEORM, TAGS.TYPESCRIPT,TAGS.NESTJS],
     github: "https://github.com/JosemAVSG/PM4-JosemAVSG",
     link: "https://nest-demo-latest-plw3.onrender.com/api",
     image: "/EcommerceApi.webp",
