@@ -91,7 +91,7 @@ const PROJECTS = [
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, github, link, image }) => (
+  PROJECTS.map(({ title, description, tags, github, link, image },index )=> (
     <article class="w-full p-4 flex flex-row-reverse gap-x-8">
     <div class="w-full md:w-1/2 md:max-w-lg">
       <h3 class="text-3xl font-semibold text-black dark:text-primary mb-2">{title}</h3>
@@ -125,7 +125,9 @@ const PROJECTS = [
     <div class="w-full md:w-1/2">
 
       <img
-        class="rounded-2xl shadow-white/10 shadow-2xl w-full"
+      class={`rounded-2xl shadow-white/10 shadow-2xl w-full transition-all duration-500 ease-in-out transform hover:scale-105 ${
+        index % 2 === 0 ? 'hover:rotate-3' : 'hover:-rotate-3'
+      }`}
         src={image}
         alt={`Screenshot of ${title}`}
       />
