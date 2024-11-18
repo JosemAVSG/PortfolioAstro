@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Badge from "../components/Badge.astro";
-import Linkedin from '../icons/Linkedin.astro';
-import Github from '../icons/Github.astro';
+import Linkedin from "../icons/Linkedin.astro";
+import Github from "../icons/Github.astro";
 import Codepen from "../icons/Codepen.astro";
 import Experience from "../components/Experience.astro";
 import Briefcase from "../icons/Briefcase.astro";
@@ -13,54 +13,102 @@ import Aboutme from "../components/Aboutme.astro";
 import User from "../components/User.astro";
 ---
 
-<Layout title="Portfolio de Jose Gonzalez - Full Stack Web Developer" 
-description="Descubre el portafolio de Jose Gonzalez, un talentoso desarrollador web Full Stack con experiencia en tecnologías modernas como React, Next.js, Node.js, y más."
+<Layout
+  title="Portfolio de Jose Gonzalez - Full Stack Web Developer"
+  description="Descubre el portafolio de Jose Gonzalez, un talentoso desarrollador web Full Stack con experiencia en tecnologías modernas como React, Next.js, Node.js, y más."
 >
   <main class="px-8 w-[500px] sm:w-full">
-	<SectionContainer class:list={['w-[440px] mx-auto lg:w-[740px] py-44']}>
+    <SectionContainer class:list={["w-[440px] mx-auto lg:w-[740px] py-44"]}>
+      <div class="flex flex-row gap-x-4 items-center mb-4">
+        <img
+          class="w-20 h-20 rounded-full"
+          src="https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4"
+          alt="Avatar"
+        />
+        <a
+          href="https://www.linkedin.com/in/josemavsg"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center md:hover:scale-110 transition-all duration-500 ease-in-out"
+          ><Badge>Open to Work</Badge></a
+        >
+      </div>
+      <h1
+        class="text-black dark:text-white text-2xl lg:text-4xl font-bold flex flex-row gap-x-4 pb-4"
+      >
+        🙋‍♂️Hola, Soy Jose Gonzalez🚀
+      </h1>
+      <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px] z-[1] opacity-80">
+        Un gusto y bienvenido a mi portafolio. Espero que encuentres algo de
+        <span class="text-blue-600 dark:text-primary"
+          >interés y que pueda servirte de ayuda.</span
+        > Te invito a explorar este espacio y encontrar información útil acerca de
+        mi carrera y experiencia como desarrollador web.<span
+          class="text-blue-600 dark:text-primary"
+          >¡Que tengas un buen día!</span
+        >
+      </h2>
+      <ul class="flex flex-row gap-x-4 mt-4">
+        <li
+          class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"
+        >
+          <a
+            class="flex flex-col justify-center items-center"
+            href="https://www.linkedin.com/in/josemavsg"
+            ><Linkedin class:list={["w-10 h-10 fill-black dark:fill-white"]} /> Linkedin</a>
+        </li>
+        <li
+          class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"
+        >
+          <a
+            class="flex flex-col justify-center items-center"
+            href="https://github.com/JosemAVSG"
+            ><Github class:list={["w-10 h-10 fill-black dark:fill-white"]} /> Github</a>
+        </li>
+        <li
+          class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"
+        >
+          <a
+            class="flex flex-col justify-center items-center"
+            href="https://codepen.io/JosemAVSG"
+            ><Codepen class:list={["w-10 h-10 fill-black dark:fill-white"]} /> CodePen</a>
+        </li>
+      </ul>
+    </SectionContainer>
+    <SectionContainer
+      id="experience"
+      class:list={["w-[440px] mx-auto lg:w-[900px] py-10"]}
+    >
+      <h2
+        class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4"
+      >
+        <Briefcase class:list={["size-10"]} />Experiencia Laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
 
-		<div class="flex flex-row gap-x-4 items-center mb-4">
-			<img
-			  class="w-20 h-20 rounded-full"
-			  src="https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4"
-			  alt="Avatar"
-			/>
-			<a
-			href="https://www.linkedin.com/in/josemavsg"
-			target="_blank"
-			rel="noopener"
-			class="flex justify-center items-center md:hover:scale-110 transition-all duration-500 ease-in-out"
-			><Badge>Open to Work</Badge></a>
-		</div>
-	  <h1 class="text-black dark:text-white text-2xl lg:text-4xl font-bold flex flex-row gap-x-4 pb-4">
-		🙋‍♂️Hola, Soy Jose Gonzalez🚀
-	  </h1>
-	  <h2 class="text-xl lg:text-2xl text-wrap max-w-[700px] z-[1] opacity-80">
-		Un gusto y bienvenido a mi portafolio. Espero que encuentres algo de
-		<span class="text-[#ff3939] dark:text-primary">interés y que pueda servirte de ayuda.</span> Te invito a explorar este espacio
-		y encontrar información útil acerca de mi carrera y experiencia como
-		desarrollador web.<span class="text-[#ff3939] dark:text-primary">¡Que tengas un buen día!</span> 
-	  </h2>
-	  <ul class="flex flex-row gap-x-4 mt-4">
-		<li class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"><a class="flex flex-col justify-center items-center" href="https://www.linkedin.com/in/josemavsg"><Linkedin class:list={['w-10 h-10 fill-black dark:fill-white'  ]} /> Linkedin</a></li>
-		<li class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"><a class="flex flex-col justify-center items-center" href="https://github.com/JosemAVSG"><Github class:list={['w-10 h-10 fill-black dark:fill-white']} /> Github</a></li>
-		<li class="hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out"><a class="flex flex-col justify-center items-center" href="https://codepen.io/JosemAVSG"><Codepen class:list={['w-10 h-10 fill-black dark:fill-white']} /> CodePen</a></li>
-	  </ul>
-	</SectionContainer>
-	<SectionContainer id="experience" class:list={['w-[440px] mx-auto lg:w-[900px] py-10']}>
-		 <h2 class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4"><Briefcase class:list={['size-10']} />Experiencia Laboral</h2>
-		<Experience />
-	</SectionContainer>
+    <SectionContainer
+      id="projects"
+      class:list={["w-[440px] mx-auto lg:w-[900px] py-10"]}
+    >
+      <h2
+        class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4"
+      >
+        <Stack class:list={["size-10"]} />Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
 
-	<SectionContainer id="projects" class:list={['w-[440px] mx-auto lg:w-[900px] py-10']}>
-		<h2 class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4"><Stack class:list={['size-10']} />Proyectos</h2>
-	   <Projects />
-   </SectionContainer>
-
-   	<SectionContainer id="aboutme" class:list={['w-[440px] mx-auto lg:w-[900px] py-44']}>
-		<h2 class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4"><User class:list={['size-10']} /> Acerca de mi</h2>
-		<Aboutme />
-	</SectionContainer>
-   
+    <SectionContainer
+      id="aboutme"
+      class:list={["w-[440px] mx-auto lg:w-[900px] py-44"]}
+    >
+      <h2
+        class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4"
+      >
+        <User class:list={["size-10"]} /> Acerca de mi
+      </h2>
+      <Aboutme />
+    </SectionContainer>
   </main>
 </Layout>
