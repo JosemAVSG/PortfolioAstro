@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionContainer from '../../components/atoms/SectionContainer.astro';
+import Hero from '../../components/organisms/Hero.astro';
+import Experience from '../../components/organisms/Experience.astro';
+import Projects from '../../components/organisms/Projects.astro';
+import AboutMe from '../../components/organisms/AboutMe.astro';
+import Briefcase from '../../icons/Briefcase.astro';
+import Stack from '../../icons/Stack.astro';
+import User from '../../icons/User.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('es');
+---
+
+<Layout 
+  title="Portfolio de Jose Gonzalez - Full Stack Web Developer"
+  description={t('meta.description')}
+  lang="es"
+>
+  <main class="px-8 w-[500px] sm:w-full">
+    <SectionContainer class:list={['w-[440px] mx-auto lg:w-[740px] py-44']}>
+      <Hero lang="es" />
+    </SectionContainer>
+
+    <SectionContainer id="experience" class:list={['w-[440px] mx-auto lg:w-[900px] py-10']}>
+      <h2 class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4">
+        <Briefcase class:list={['size-10']} />{t('experience.title')}
+      </h2>
+      <Experience lang="es" />
+    </SectionContainer>
+
+    <SectionContainer id="projects" class:list={['w-[440px] mx-auto lg:w-[900px] py-10']}>
+      <h2 class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4">
+        <Stack class:list={['size-10']} />{t('projects.title')}
+      </h2>
+      <Projects lang="es" />
+    </SectionContainer>
+
+    <SectionContainer id="aboutme" class:list={['w-[440px] mx-auto lg:w-[900px] py-44']}>
+      <h2 class="flex items-center gap-4 text-black dark:text-white text-3xl font-semibold mb-4">
+        <User class:list={['size-10']} /> {t('about.title')}
+      </h2>
+      <AboutMe lang="es" />
+    </SectionContainer>
+  </main>
+</Layout>

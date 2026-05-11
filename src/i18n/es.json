@@ -1,0 +1,36 @@
+{
+  "nav.experience": "Experiencia",
+  "nav.projects": "Proyectos",
+  "nav.about": "Acerca de",
+  "nav.contact": "Contacto",
+
+  "hero.title": "Hola, Soy Jose Gonzalez",
+  "hero.subtitle": "Un gusto y bienvenido a mi portafolio. Espero que puedas encontrar algo de interés y que pueda servirte de ayuda. Te invito a explorar este espacio y encontrar información útil acerca de mi carrera y experiencia como desarrollador web. ¡Que tengas un buen día!",
+  "hero.openToWork": "Open to Work",
+
+  "experience.title": "Experiencia Laboral",
+  "experience.learnMore": "Más info",
+
+  "about.title": "Acerca de mi",
+  "about.bio1": "Mi nombre es Jose Miguel, pero me dicen Miguel o Jose. Tengo 28 años vivo en Colombia pero soy de Venezuela, actualmente trabajo como <strong>Desarrollador Frontend en Agrimanager S.A.S</strong>.",
+  "about.bio2": "Me considero una persona responsable, amable y comprometida. Me gusta tocar la guitarra y escuchar música de vez en cuando y jugar videojuegos como LOL, CS:GO y World of Warcraft.",
+  "about.bio3": "En la universidad, obtuve mi título de Técnico Superior Universitario (TSU) en Informática, dando mis primeros pasos en la programación web y posteriormente me especialicé en el desarrollo de software.",
+
+  "footer.copyright": "Hecho con ❤ por JosemAVSG",
+
+  "projects.title": "Proyectos",
+  "projects.code": "Código",
+  "projects.preview": "Ver",
+
+  "meta.description": "Descubre el portafolio de Jose Gonzalez, un talentoso desarrollador web Full Stack con experiencia en tecnologías modernas como React, Next.js, Node.js, y más.",
+
+  "exp_frontend_desc": "Desarrollo de interfaces con React, Next.js, Tailwind CSS y Typescript.",
+  "exp_ta_desc": "Coordinación de estudiantes, asistencia en ejercicios y pair programming.",
+  "exp_tech_desc": "Reparación y mantenimiento de computadoras y dispositivos móviles.",
+  "exp_it_desc": "Configuración y administración de redes, desarrollo de aplicaciones.",
+
+  "proj_portfolio_desc": "Portfolio para Manuel Blanco, un talentoso Desarrollo web Full Stack.",
+  "proj_citas_desc": "Sistema de Gestión de Citas para mascotas.",
+  "proj_inventario_desc": "Sistema de gestión de inventario con React y Express.",
+  "proj_ecommerce_desc": "API REST para E-commerce con NestJS, TypeORM y TypeScript."
+}

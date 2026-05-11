@@ -1,0 +1,17 @@
+---
+import type { TechBadgeProps } from '../../types/molecules';
+
+interface Props extends TechBadgeProps {}
+
+const { name, class: className, icon: Icon, iconClass } = Astro.props;
+---
+
+<span
+  class:list={[
+    'flex rounded-full px-2 gap-x-4 flex-row mb-2 items-center overflow-hidden',
+    className,
+  ]}
+>
+  {Icon && <Icon class:list={['size-4', iconClass]} />}
+  {name}
+</span>

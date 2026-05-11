@@ -1,0 +1,15 @@
+---
+import { getProjects } from '../../data/projects';
+import ProjectCard from '../molecules/ProjectCard.astro';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const projects = getProjects(lang as 'es' | 'en');
+---
+
+{projects.map((project, index) => (
+  <ProjectCard {...project} index={index} />
+))}

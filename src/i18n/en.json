@@ -1,0 +1,36 @@
+{
+  "nav.experience": "Experience",
+  "nav.projects": "Projects",
+  "nav.about": "About",
+  "nav.contact": "Contact",
+
+  "hero.title": "Hi, I'm Jose Gonzalez",
+  "hero.subtitle": "Welcome to my portfolio. I hope you find something interesting here that can help you. I invite you to explore this space and find useful information about my career and experience as a web developer. Have a great day!",
+  "hero.openToWork": "Open to Work",
+
+  "experience.title": "Work Experience",
+  "experience.learnMore": "Learn more",
+
+  "about.title": "About me",
+  "about.bio1": "My name is Jose Miguel, but they call me Miguel or Jose. I am 28 years old, I live in Colombia but I am from Venezuela, I currently work as a <strong>Frontend Developer at Agrimanager S.A.S</strong>.",
+  "about.bio2": "I consider myself a responsible, kind and committed person. I like playing guitar and listening to music from time to time and playing video games like LOL, CS:GO and World of Warcraft.",
+  "about.bio3": "At university, I obtained my degree as a Higher Technical Technician (TSU) in Computer Science, taking my first steps in web programming and later specializing in software development.",
+
+  "footer.copyright": "Made with ❤ by JosemAVSG",
+
+  "projects.title": "Projects",
+  "projects.code": "Code",
+  "projects.preview": "Preview",
+
+  "meta.description": "Discover the portfolio of Jose Gonzalez, a talented Full Stack web developer with experience in modern technologies like React, Next.js, Node.js, and more.",
+
+  "exp_frontend_desc": "Development of user interfaces using React, Next.js, Tailwind CSS and Typescript.",
+  "exp_ta_desc": "Student coordination, exercise assistance and pair programming.",
+  "exp_tech_desc": "Repair and maintenance of computers and mobile devices.",
+  "exp_it_desc": "Network configuration and administration, Java application development.",
+
+  "proj_portfolio_desc": "Portfolio for Manuel Blanco, a talented Full Stack web developer.",
+  "proj_citas_desc": "Appointment Management System for pets.",
+  "proj_inventario_desc": "Inventory management system with React and Express.",
+  "proj_ecommerce_desc": "REST API for E-commerce with NestJS, TypeORM and TypeScript."
+}

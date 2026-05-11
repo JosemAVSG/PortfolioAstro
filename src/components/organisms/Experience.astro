@@ -1,0 +1,19 @@
+---
+import { getExperience } from '../../data/experience';
+import ExperienceCard from '../molecules/ExperienceCard.astro';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const experience = getExperience(lang as 'es' | 'en');
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-5">
+  {experience.map((exp) => (
+    <li class="mb-10 ms-4">
+      <ExperienceCard {...exp} />
+    </li>
+  ))}
+</ol>

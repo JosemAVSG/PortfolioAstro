@@ -1,17 +1,19 @@
 ---
-import Header from "../components/Header.astro";
-import Footeer from "../components/Footer.astro";
+import Header from "../components/organisms/Header.astro";
+import Footer from "../components/organisms/Footer.astro";
 import "@fontsource-variable/onest";
+
 interface Props {
   title: string;
   description: string;
+  lang?: string;
 }
 
-const { description, title } = Astro.props;
+const { description, title, lang = 'es' } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -26,9 +28,9 @@ const { description, title } = Astro.props;
 		 dark:bg-neutral-950 dark:bg-[radial-gradient(ellipse_80%_80%_at_30%_-50%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
-    <Header />
+    <Header lang={lang} />
     <slot />
-    <Footeer />
+    <Footer lang={lang} />
   </body>
 </html>
 <style is:global>
@@ -42,7 +44,6 @@ const { description, title } = Astro.props;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
     background-color: #0d0d0d;
     color: #ffffff;
     scroll-behavior: smooth;

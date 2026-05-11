@@ -1,0 +1,40 @@
+---
+import { useTranslations } from '../../i18n/utils';
+import Badge from '../atoms/Badge.astro';
+import SocialLink from '../molecules/SocialLink.astro';
+import Linkedin from '../../icons/Linkedin.astro';
+import Github from '../../icons/Github.astro';
+import Codepen from '../../icons/Codepen.astro';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang as 'es' | 'en');
+
+const socialLinks = [
+  { href: 'https://www.linkedin.com/in/josemavsg', label: 'Linkedin', icon: Linkedin },
+  { href: 'https://github.com/JosemAVSG', label: 'Github', icon: Github },
+  { href: 'https://codepen.io/JosemAVSG', label: 'CodePen', icon: Codepen },
+];
+---
+
+<div class="flex flex-row gap-x-4 items-center mb-4">
+  <img class="w-20 h-20 rounded-full" src="https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4" alt="Avatar" />
+  <a href="https://www.linkedin.com/in/josemavsg" target="_blank" rel="noopener" class="flex justify-center items-center md:hover:scale-110 transition-all duration-500 ease-in-out">
+    <Badge>{t('hero.openToWork')}</Badge>
+  </a>
+</div>
+
+<h1 class="text-black dark:text-white text-2xl lg:text-4xl font-bold flex flex-row gap-x-4 pb-4">
+  🙋‍♂️{t('hero.title')}🚀
+</h1>
+
+<h2 class="text-xl lg:text-2xl text-wrap max-w-[700px] z-[1] opacity-80">
+  {t('hero.subtitle')}
+</h2>
+
+<ul class="flex flex-row gap-x-4 mt-4">
+  {socialLinks.map((link) => (<SocialLink {...link} />))}
+</ul>

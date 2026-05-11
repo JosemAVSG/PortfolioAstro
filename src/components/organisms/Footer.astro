@@ -1,0 +1,24 @@
+---
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang as 'es' | 'en');
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-black/20 backdrop-blur-lg rounded-lg shadow w-[500px] md:w-full">
+  <div class="w-[500px] flex justify-between items-center mx-auto md:max-w-screen-xl p-4 md:flex md:items-center md:justify-around">
+    <span class="text-sm text-black sm:text-center dark:text-gray-400">
+      © {currentYear} <a href="#" class="hover:underline">{t('footer.copyright')}</a>
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-black dark:text-gray-400 sm:mt-0">
+      <li><a href="#" class="hover:underline me-4 md:me-6">{t('nav.about')}</a></li>
+      <li><a href="mailto:jmgg.95n@gmail.com" class="hover:underline">{t('nav.contact')}</a></li>
+    </ul>
+  </div>
+</footer>

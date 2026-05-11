@@ -1,0 +1,23 @@
+---
+import type { ButtonProps } from '../../types';
+
+interface Props extends ButtonProps {}
+
+const { href, variant = 'primary', class: className } = Astro.props;
+
+const baseClasses =
+  'inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-white transition border rounded-xl focus-visible:ring-yellow-500/80 hover:bg-gray-800 hover:border-gray-900 group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black';
+
+const variantClasses = {
+  primary: 'bg-gray-800 border-gray-600 hover:text-white',
+  secondary: 'bg-transparent border-gray-600 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800',
+};
+---
+
+<a
+  href={href}
+  role="link"
+  class:list={[baseClasses, variantClasses[variant], className]}
+>
+  <slot />
+</a>

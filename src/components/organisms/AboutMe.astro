@@ -1,0 +1,37 @@
+---
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang as 'es' | 'en');
+
+const avatarUrl = 'https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4';
+
+const bio = [
+  t('about.bio1'),
+  t('about.bio2'),
+  t('about.bio3'),
+];
+---
+
+<article class="flex flex-col items-center justify-center gap-8 text-gray-900 dark:text-gray-100 md:flex-row-reverse">
+  <div class="[&>p]:mb-4 [&>p>strong]:text-blue-600 dark:[&>p>strong]:text-primary text-pretty order-2 md:order-1">
+    {bio.map((paragraph) => <p set:html={paragraph} />)}
+  </div>
+  <div class="hero-img">
+    <div class="circulo"></div>
+    <img width="200" height="200" src={avatarUrl} alt="Jose Gonzalez"
+      class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20" />
+  </div>
+</article>
+
+<style>
+  .hero-img { display: flex; justify-content: center; align-items: center; position: relative; transition: all 0.35s ease-in-out; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; overflow: hidden; animation: none; border-radius: 1000px; transition: all 0.35s ease-in-out; }
+  .circulo { transition-property: transform; animation-name: rotate-center; animation-duration: 5.8s; animation-iteration-count: infinite; animation-timing-function: linear; transition: all 0.35s ease-in-out; position: absolute; width: 100%; height: 100%; border: 5px #f9f871; color-scheme: light dark; border-radius: 50%; border-style: outset; overflow: hidden; }
+  @keyframes rotate-center { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+  @media screen and (max-width: 768px) { .hero-img { width: 250px; height: 250px; } }
+</style>

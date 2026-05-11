@@ -1,0 +1,25 @@
+---
+import type { SocialLinkProps } from '../../types/molecules';
+
+interface Props extends SocialLinkProps {}
+
+const { href, label, icon: Icon, class: className } = Astro.props;
+---
+
+<li
+  class:list={[
+    'hover:opacity-80 hover:bg-white/10 rounded-lg p-2 hover:scale-110 transition-all duration-500 ease-in-out',
+    className,
+  ]}
+>
+  <a
+    class="flex flex-col justify-center items-center"
+    href={href}
+    target="_blank"
+    rel="noopener"
+    aria-label={label}
+  >
+    <Icon class:list={['w-10 h-10 fill-black dark:fill-white']} />
+    {label}
+  </a>
+</li>

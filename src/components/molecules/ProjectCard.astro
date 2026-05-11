@@ -1,0 +1,50 @@
+---
+import type { ProjectCardProps } from '../../types/molecules';
+import Button from '../atoms/Button.astro';
+import TechBadge from './TechBadge.astro';
+
+interface Props extends ProjectCardProps {}
+
+const { title, description, tags, github, link, image, index, class: className } =
+  Astro.props;
+
+const isEven = index % 2 === 0;
+---
+
+<article class:list={['w-full p-4 flex flex-col md:flex-row gap-x-8 gap-y-8', className]}>
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-3xl font-semibold text-black dark:text-primary mb-2">
+      {title}
+    </h3>
+    <ul class="flex gap-x-2 flex-row flex-wrap">
+      {tags.map((tag) => (
+        <li>
+          <TechBadge name={tag.name} class={tag.class} icon={tag.icon} iconClass="size-4" />
+        </li>
+      ))}
+    </ul>
+    <p class="text-lg mb-2 text-pretty">{description}</p>
+    <footer class="flex items-end justify-start mt-4 gap-x-4">
+      {github && (
+        <Button href={github}>
+          Code
+        </Button>
+      )}
+      {link && (
+        <Button href={link}>
+          Preview
+        </Button>
+      )}
+    </footer>
+  </div>
+  <div class="w-full md:w-1/2">
+    <img
+      class:list={[
+        'rounded-2xl shadow-white/10 shadow-2xl w-full transition-all duration-500 ease-in-out transform hover:scale-105',
+        isEven ? 'hover:rotate-3' : 'hover:-rotate-3',
+      ]}
+      src={image}
+      alt={`Screenshot of ${title}`}
+    />
+  </div>
+</article>
