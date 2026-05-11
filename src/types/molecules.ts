@@ -1,22 +1,17 @@
-export type AstroComponent = any;
+import type { BaseProps } from './index';
 
-export interface TechBadgeProps {
-  name: string;
-  class?: string;
-  icon?: AstroComponent;
-  iconClass?: string;
-}
+export type AstroComponent = any;
 
 export interface TechBadgeProps extends BaseProps {
   name: string;
-  icon?: AstroComponentFactory;
+  icon?: AstroComponent;
   iconClass?: string;
 }
 
 export interface TechTag {
   name: string;
   class: string;
-  icon: AstroComponentFactory;
+  icon?: AstroComponent;
 }
 
 export interface ProjectCardProps extends BaseProps {
@@ -35,4 +30,10 @@ export interface ExperienceCardProps extends BaseProps {
   company: string;
   description: string;
   href?: string;
+}
+
+export interface SocialLinkProps extends BaseProps {
+  href: string;
+  label: string;
+  icon: AstroComponent;
 }
