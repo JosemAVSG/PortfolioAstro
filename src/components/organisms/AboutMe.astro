@@ -15,23 +15,61 @@ const bio = [
   t('about.bio2'),
   t('about.bio3'),
 ];
+
+const skills = lang === 'es' 
+  ? ['React', 'Next.js', 'TypeScript', 'Node.js', 'NestJS', 'AWS', 'PostgreSQL', 'MongoDB', 'Docker']
+  : ['React', 'Next.js', 'TypeScript', 'Node.js', 'NestJS', 'AWS', 'PostgreSQL', 'MongoDB', 'Docker'];
 ---
 
-<article class="flex flex-col items-center justify-center gap-8 text-gray-900 dark:text-gray-100 md:flex-row-reverse">
-  <div class="[&>p]:mb-4 [&>p>strong]:text-blue-600 dark:[&>p>strong]:text-primary text-pretty order-2 md:order-1">
-    {bio.map((paragraph) => <p set:html={paragraph} />)}
+<section class="space-y-8">
+  <div class="flex flex-col md:flex-row gap-8 items-start">
+    <div class="hero-img shrink-0">
+      <div class="circulo"></div>
+      <img width="200" height="200" src={avatarUrl} alt="Jose Miguel González"
+        class="order-1 object-cover w-48 h-48 md:w-56 md:h-56 p-2 rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-2 ring-primary/20" />
+    </div>
+    <div class="flex-1 space-y-4">
+      {bio.map((paragraph) => (
+        <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" set:html={paragraph} />
+      ))}
+    </div>
   </div>
-  <div class="hero-img">
-    <div class="circulo"></div>
-    <img width="200" height="200" src={avatarUrl} alt="Jose Gonzalez"
-      class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20" />
+
+  <!-- Tech Stack -->
+  <div class="pt-4">
+    <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
+      {lang === 'es' ? 'Tech Stack' : 'Tech Stack'}
+    </h4>
+    <div class="flex flex-wrap gap-3">
+      {skills.map((skill) => (
+        <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full font-medium hover:bg-primary/10 hover:text-primary transition-colors">
+          {skill}
+        </span>
+      ))}
+    </div>
   </div>
-</article>
+</section>
 
 <style>
-  .hero-img { display: flex; justify-content: center; align-items: center; position: relative; transition: all 0.35s ease-in-out; }
-  .hero-img img { width: 100%; height: 100%; object-fit: cover; overflow: hidden; animation: none; border-radius: 1000px; transition: all 0.35s ease-in-out; }
-  .circulo { transition-property: transform; animation-name: rotate-center; animation-duration: 5.8s; animation-iteration-count: infinite; animation-timing-function: linear; transition: all 0.35s ease-in-out; position: absolute; width: 100%; height: 100%; border: 5px #f9f871; color-scheme: light dark; border-radius: 50%; border-style: outset; overflow: hidden; }
-  @keyframes rotate-center { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
-  @media screen and (max-width: 768px) { .hero-img { width: 250px; height: 250px; } }
+  .hero-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .circulo {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 3px #f9f871;
+    border-radius: 50%;
+    animation: rotate-center 6s linear infinite;
+  }
+  @keyframes rotate-center {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+  }
+  @media (max-width: 768px) {
+    .circulo { width: 140px; height: 140px; }
+  }
 </style>

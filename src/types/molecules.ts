@@ -22,9 +22,9 @@ export interface TechTag {
 export interface ProjectCardProps extends BaseProps {
   title: string;
   description: string;
-  tags: TechTag[];
+  tags: (TechTag | string)[];
   github: string;
-  link: string;
+  link?: string;
   image: string;
   index: number;
 }

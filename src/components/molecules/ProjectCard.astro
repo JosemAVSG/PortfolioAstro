@@ -1,47 +1,59 @@
 ---
-import type { ProjectCardProps } from '../../types/molecules';
+import type { ProjectCardProps, TechTag } from '../../types/molecules';
 import Button from '../atoms/Button.astro';
 import TechBadge from './TechBadge.astro';
 
-interface Props extends ProjectCardProps {}
+interface Props {
+  title: string;
+  description: string;
+  tags: (TechTag | string)[];
+  github: string;
+  link?: string;
+  image: string;
+  index: number;
+  class?: string;
+}
 
-const { title, description, tags, github, link, image, index, class: className } =
-  Astro.props;
-
+const { title, description, tags, github, link, image, index, class: className } = Astro.props;
 const isEven = index % 2 === 0;
+
+const getBadgeClass = (tag: TechTag | string): string => {
+  if (typeof tag === 'string') {
+    return 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300';
+  }
+  return tag.class || 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300';
+};
+
+const getBadgeName = (tag: TechTag | string): string => {
+  if (typeof tag === 'string') return tag;
+  return tag.name;
+};
 ---
 
 <article class:list={['w-full p-4 flex flex-col md:flex-row gap-x-8 gap-y-8', className]}>
   <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-3xl font-semibold text-black dark:text-primary mb-2">
-      {title}
-    </h3>
-    <ul class="flex gap-x-2 flex-row flex-wrap">
+    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
+    <ul class="flex gap-2 flex-wrap">
       {tags.map((tag) => (
         <li>
-          <TechBadge name={tag.name} class={tag.class} icon={tag.icon} iconClass="size-4" />
+          <span class:list={['inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium', getBadgeClass(tag)]}>
+            {getBadgeName(tag)}
+          </span>
         </li>
       ))}
     </ul>
-    <p class="text-lg mb-2 text-pretty">{description}</p>
+    <p class="text-base text-gray-600 dark:text-gray-300 mb-2 text-pretty">{description}</p>
     <footer class="flex items-end justify-start mt-4 gap-x-4">
-      {github && (
-        <Button href={github}>
-          Code
-        </Button>
-      )}
-      {link && (
-        <Button href={link}>
-          Preview
-        </Button>
+      {github && github !== '#' && (
+        <Button href={github}>Code</Button>
       )}
     </footer>
   </div>
   <div class="w-full md:w-1/2">
     <img
       class:list={[
-        'rounded-2xl shadow-white/10 shadow-2xl w-full transition-all duration-500 ease-in-out transform hover:scale-105',
-        isEven ? 'hover:rotate-3' : 'hover:-rotate-3',
+        'rounded-xl shadow-lg w-full h-48 object-cover transition-all duration-500 ease-in-out transform hover:scale-105',
+        isEven ? 'hover:rotate-2' : 'hover:-rotate-2',
       ]}
       src={image}
       alt={`Screenshot of ${title}`}

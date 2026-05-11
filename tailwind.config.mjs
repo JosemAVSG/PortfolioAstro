@@ -5,10 +5,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'primary': '#f9f871',
-				
+				'primary': '#0ea5e9',  // Sky blue más nice
 			}
-
 		},
 	},
 	plugins: [],

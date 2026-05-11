@@ -3,34 +3,56 @@
   "nav.projects": "Proyectos",
   "nav.about": "Acerca de",
   "nav.contact": "Contacto",
+  "nav.certifications": "Certificaciones",
 
-  "hero.title": "Hola, Soy Jose Gonzalez",
-  "hero.subtitle": "Un gusto y bienvenido a mi portafolio. Espero que puedas encontrar algo de interés y que pueda servirte de ayuda. Te invito a explorar este espacio y encontrar información útil acerca de mi carrera y experiencia como desarrollador web. ¡Que tengas un buen día!",
+  "hero.title": "Hola, Soy Jose Miguel González",
+  "hero.subtitle": "Desarrollador Full Stack especializado en React, Node.js y soluciones cloud. +4 años de experiencia construyendo aplicaciones escalables y de alto rendimiento.",
   "hero.openToWork": "Open to Work",
+  "hero.cta": "Ver proyectos",
 
-  "experience.title": "Experiencia Laboral",
-  "experience.learnMore": "Más info",
+  "experience.title": "Experiencia Profesional",
+  "experience.learnMore": "Ver más",
 
-  "about.title": "Acerca de mi",
-  "about.bio1": "Mi nombre es Jose Miguel, pero me dicen Miguel o Jose. Tengo 28 años vivo en Colombia pero soy de Venezuela, actualmente trabajo como <strong>Desarrollador Frontend en Agrimanager S.A.S</strong>.",
-  "about.bio2": "Me considero una persona responsable, amable y comprometida. Me gusta tocar la guitarra y escuchar música de vez en cuando y jugar videojuegos como LOL, CS:GO y World of Warcraft.",
-  "about.bio3": "En la universidad, obtuve mi título de Técnico Superior Universitario (TSU) en Informática, dando mis primeros pasos en la programación web y posteriormente me especialicé en el desarrollo de software.",
+  "exp_role_agrimanager": "Frontend Web Developer",
+  "exp_desc_agrimanager": "Desarrollo y mantenimiento de módulos frontend. WebView para app móvil. Nuevo módulo completo. Integración REST APIs. Tecnologías: React, TypeScript, Zustand.",
+  
+  "exp_role_astrolle": "Frontend Web Developer",
+  "exp_desc_astrolle": "Desarrollo en arquitectura Micro Frontends con React. Implementación de funcionalidades REST APIs. Creación de componentes reutilizables.",
+  
+  "exp_role_abc": "Full Stack Developer (MERN)",
+  "exp_desc_abc": "Sistema de inventario con MERN stack. Autenticación, CRUD, optimización de consultas. Soporte técnico y mantenimiento de dispositivos.",
+  
+  "exp_role_alcaldia": "Software Developer (IT Analyst)",
+  "exp_desc_alcaldia": "Aplicación de escritorio en Java para gestión de activos. Portal web institucional. Automatización de procesos. Soporte técnico redes y sistemas.",
 
-  "footer.copyright": "Hecho con ❤ por JosemAVSG",
+  "certifications.title": "Certificaciones",
 
   "projects.title": "Proyectos",
+  "projects.all": "Todos",
+  "projects.frontend": "Frontend",
+  "projects.backend": "Backend",
+  "projects.devops": "DevOps",
   "projects.code": "Código",
-  "projects.preview": "Ver",
+  "projects.preview": "Demo",
 
-  "meta.description": "Descubre el portafolio de Jose Gonzalez, un talentoso desarrollador web Full Stack con experiencia en tecnologías modernas como React, Next.js, Node.js, y más.",
+  "proj_fe_1_title": "Dashboard de Inventario",
+  "proj_fe_1_desc": "Sistema de gestión de inventario en tiempo real con React y Zustand.",
+  "proj_fe_2_title": "App WebView Móvil",
+  "proj_fe_2_desc": "Interfaz web optimizada para integración con aplicación móvil nativa.",
 
-  "exp_frontend_desc": "Desarrollo de interfaces con React, Next.js, Tailwind CSS y Typescript.",
-  "exp_ta_desc": "Coordinación de estudiantes, asistencia en ejercicios y pair programming.",
-  "exp_tech_desc": "Reparación y mantenimiento de computadoras y dispositivos móviles.",
-  "exp_it_desc": "Configuración y administración de redes, desarrollo de aplicaciones.",
+  "proj_be_1_title": "API E-commerce",
+  "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
+  "proj_be_2_title": "API Citas Médicas",
+  "proj_be_2_desc": "Backend con Express, MongoDB y autenticación JWT para gestión de citas.",
 
-  "proj_portfolio_desc": "Portfolio para Manuel Blanco, un talentoso Desarrollo web Full Stack.",
-  "proj_citas_desc": "Sistema de Gestión de Citas para mascotas.",
-  "proj_inventario_desc": "Sistema de gestión de inventario con React y Express.",
-  "proj_ecommerce_desc": "API REST para E-commerce con NestJS, TypeORM y TypeScript."
+  "proj_dev_1_title": "Infraestructura AWS",
+  "proj_dev_1_desc": "Configuración de servicios AWS con Docker, alta disponibilidad y CI/CD.",
+
+  "about.title": "Acerca de mí",
+  "about.bio1": "Desarrollador Full Stack orientado a resultados, especializado en JavaScript, React y Node.js. +4 años de experiencia construyendo aplicaciones web escalables y de alto rendimiento.",
+  "about.bio2": "Experiencia en APIs RESTful, arquitecturas modulares, bases de datos (PostgreSQL, MongoDB, MySQL), Redux/Zustand, y certificación AWS Solutions Architect.",
+  "about.bio3": "Técnico Superior en Informática (UPTNM). Full Stack Developer en Bootcamp Soy Henry. Passionate por crear soluciones que impactan y trabajo en equipo.",
+
+  "footer.copyright": "Hecho con ❤️ por JosemAVSG",
+  "meta.description": "Jose Miguel González - Full Stack Developer especializado en React, Node.js, AWS. +4 años de experiencia en aplicaciones escalables."
 }

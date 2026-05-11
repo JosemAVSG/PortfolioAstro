@@ -3,34 +3,56 @@
   "nav.projects": "Projects",
   "nav.about": "About",
   "nav.contact": "Contact",
+  "nav.certifications": "Certifications",
 
-  "hero.title": "Hi, I'm Jose Gonzalez",
-  "hero.subtitle": "Welcome to my portfolio. I hope you find something interesting here that can help you. I invite you to explore this space and find useful information about my career and experience as a web developer. Have a great day!",
+  "hero.title": "Hi, I'm Jose Miguel González",
+  "hero.subtitle": "Full Stack Developer specialized in React, Node.js and cloud solutions. +4 years building scalable, high-performance applications.",
   "hero.openToWork": "Open to Work",
+  "hero.cta": "View projects",
 
-  "experience.title": "Work Experience",
+  "experience.title": "Professional Experience",
   "experience.learnMore": "Learn more",
 
-  "about.title": "About me",
-  "about.bio1": "My name is Jose Miguel, but they call me Miguel or Jose. I am 28 years old, I live in Colombia but I am from Venezuela, I currently work as a <strong>Frontend Developer at Agrimanager S.A.S</strong>.",
-  "about.bio2": "I consider myself a responsible, kind and committed person. I like playing guitar and listening to music from time to time and playing video games like LOL, CS:GO and World of Warcraft.",
-  "about.bio3": "At university, I obtained my degree as a Higher Technical Technician (TSU) in Computer Science, taking my first steps in web programming and later specializing in software development.",
+  "exp_role_agrimanager": "Frontend Web Developer",
+  "exp_desc_agrimanager": "Frontend development and maintenance. WebView for mobile app. New module development. REST API integration. Tech: React, TypeScript, Zustand.",
+  
+  "exp_role_astrolle": "Frontend Web Developer",
+  "exp_desc_astrolle": "Micro Frontends architecture development with React. REST API implementation. Reusable components creation.",
+  
+  "exp_role_abc": "Full Stack Developer (MERN)",
+  "exp_desc_abc": "Inventory management system with MERN stack. Authentication, CRUD, query optimization. Technical support and device maintenance.",
+  
+  "exp_role_alcaldia": "Software Developer (IT Analyst)",
+  "exp_desc_alcaldia": "Desktop application in Java for municipal asset management. Institutional web portal. Process automation. Technical support.",
 
-  "footer.copyright": "Made with ❤ by JosemAVSG",
+  "certifications.title": "Certifications",
 
   "projects.title": "Projects",
+  "projects.all": "All",
+  "projects.frontend": "Frontend",
+  "projects.backend": "Backend",
+  "projects.devops": "DevOps",
   "projects.code": "Code",
-  "projects.preview": "Preview",
+  "projects.preview": "Demo",
 
-  "meta.description": "Discover the portfolio of Jose Gonzalez, a talented Full Stack web developer with experience in modern technologies like React, Next.js, Node.js, and more.",
+  "proj_fe_1_title": "Inventory Dashboard",
+  "proj_fe_1_desc": "Real-time inventory management system with React and Zustand.",
+  "proj_fe_2_title": "Mobile WebView App",
+  "proj_fe_2_desc": "Web interface optimized for native mobile app integration.",
 
-  "exp_frontend_desc": "Development of user interfaces using React, Next.js, Tailwind CSS and Typescript.",
-  "exp_ta_desc": "Student coordination, exercise assistance and pair programming.",
-  "exp_tech_desc": "Repair and maintenance of computers and mobile devices.",
-  "exp_it_desc": "Network configuration and administration, Java application development.",
+  "proj_be_1_title": "E-commerce API",
+  "proj_be_1_desc": "Complete REST API with NestJS, TypeORM, JWT auth and PostgreSQL.",
+  "proj_be_2_title": "Medical Appointments API",
+  "proj_be_2_desc": "Backend with Express, MongoDB and JWT authentication for appointments.",
 
-  "proj_portfolio_desc": "Portfolio for Manuel Blanco, a talented Full Stack web developer.",
-  "proj_citas_desc": "Appointment Management System for pets.",
-  "proj_inventario_desc": "Inventory management system with React and Express.",
-  "proj_ecommerce_desc": "REST API for E-commerce with NestJS, TypeORM and TypeScript."
+  "proj_dev_1_title": "AWS Infrastructure",
+  "proj_dev_1_desc": "AWS services configuration with Docker, high availability and CI/CD.",
+
+  "about.title": "About me",
+  "about.bio1": "Results-oriented Full Stack Developer specialized in JavaScript, React and Node.js. +4 years building scalable, high-performance web applications.",
+  "about.bio2": "Experience with REST APIs, modular architectures, databases (PostgreSQL, MongoDB, MySQL), Redux/Zustand, and AWS Solutions Architect certification.",
+  "about.bio3": "Computer Science Technical Degree (UPTNM). Full Stack Developer from Soy Henry Bootcamp. Passionate about creating impactful solutions and teamwork.",
+
+  "footer.copyright": "Made with ❤️ by JosemAVSG",
+  "meta.description": "Jose Miguel González - Full Stack Developer specialized in React, Node.js, AWS. +4 years of experience in scalable applications."
 }

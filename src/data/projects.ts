@@ -9,50 +9,63 @@ import TypeORm from '../icons/TypeORm.astro';
 import Nestjs from '../icons/Nestjs.astro';
 
 const TAGS: Record<string, TechTag> = {
-  REACT: { name: 'React', class: 'bg-[#003159] text-white', icon: React },
-  NEXT: { name: 'Next.js', class: 'bg-black text-white', icon: Next },
-  TAILWIND: { name: 'Tailwindcss', class: 'bg-[#003159] text-white', icon: Tailwind },
-  EXPRESS: { name: 'Express', class: 'bg-black text-white', icon: Express },
-  TYPESCRIPT: { name: 'Typescript', class: 'bg-white/10', icon: Typescript },
-  TYPEORM: { name: 'TypeORM', class: 'bg-white/10', icon: TypeORm },
-  NESTJS: { name: 'Nestjs', class: 'bg-white/10', icon: Nestjs },
+  REACT: { name: 'React', class: 'bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300', icon: React },
+  NEXT: { name: 'Next.js', class: 'bg-gray-900 text-white dark:bg-gray-800 dark:text-gray-200', icon: Next },
+  TAILWIND: { name: 'Tailwind', class: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300', icon: Tailwind },
+  EXPRESS: { name: 'Express', class: 'bg-gray-800 text-white dark:bg-gray-700 dark:text-gray-200', icon: Express },
+  TYPESCRIPT: { name: 'TypeScript', class: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300', icon: Typescript },
+  TYPEORM: { name: 'TypeORM', class: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300', icon: TypeORm },
+  NESTJS: { name: 'NestJS', class: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300', icon: Nestjs },
 };
 
 export function getProjects(lang: 'es' | 'en') {
   const t = useTranslations(lang) as any;
   
-  return [
-    {
-      title: 'Portfolio',
-      description: t('proj_portfolio_desc'),
-      tags: [TAGS.REACT, TAGS.NEXT, TAGS.TAILWIND],
-      github: 'https://github.com/JosemAVSG/manu_portfolio',
-      link: '',
-      image: '/ManuPortfolio.webp',
-    },
-    {
-      title: 'Sistema de Gestión de Citas',
-      description: t('proj_citas_desc'),
-      tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.EXPRESS],
-      github: 'https://github.com/JosemAVSG/Sistema-de-Citas-PetCare',
-      link: 'https://sistema-de-citas-pet-care.vercel.app',
-      image: '/Petcare.webp',
-    },
-    {
-      title: 'Sistema de Inventario',
-      description: t('proj_inventario_desc'),
-      tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND, TAGS.EXPRESS],
-      github: 'https://github.com/JosemAVSG/Sistema-de-inventario-Client',
-      link: 'https://sistema-de-inventario-client.vercel.app/',
-      image: '/inventory.webp',
-    },
-    {
-      title: 'E-commerce Backend',
-      description: t('proj_ecommerce_desc'),
-      tags: [TAGS.TYPEORM, TAGS.TYPESCRIPT, TAGS.NESTJS],
-      github: 'https://github.com/JosemAVSG/PM4-JosemAVSG',
-      link: 'https://nest-demo-latest-plw3.onrender.com/api',
-      image: '/EcommerceApi.webp',
-    },
-  ];
+  return {
+    frontend: [
+      {
+        title: t('proj_fe_1_title'),
+        description: t('proj_fe_1_desc'),
+        tags: [TAGS.REACT, TAGS.NEXT, TAGS.TAILWIND],
+        github: 'https://github.com/JosemAVSG/manu_portfolio',
+        image: '/ManuPortfolio.webp',
+      },
+      {
+        title: t('proj_fe_2_title'),
+        description: t('proj_fe_2_desc'),
+        tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        github: 'https://github.com/JosemAVSG/Sistema-de-inventario-Client',
+        image: '/inventory.webp',
+      },
+    ],
+    backend: [
+      {
+        title: t('proj_be_1_title'),
+        description: t('proj_be_1_desc'),
+        tags: [TAGS.NESTJS, TAGS.TYPEORM, TAGS.TYPESCRIPT],
+        github: 'https://github.com/JosemAVSG/PM4-JosemAVSG',
+        image: '/EcommerceApi.webp',
+      },
+      {
+        title: t('proj_be_2_title'),
+        description: t('proj_be_2_desc'),
+        tags: [TAGS.EXPRESS, TAGS.TYPESCRIPT, TAGS.REACT],
+        github: 'https://github.com/JosemAVSG/Sistema-de-Citas-PetCare',
+        image: '/Petcare.webp',
+      },
+    ],
+    devops: [
+      {
+        title: t('proj_dev_1_title'),
+        description: t('proj_dev_1_desc'),
+        tags: [
+          { name: 'Docker', class: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300', icon: null as any },
+          { name: 'AWS', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
+          { name: 'CI/CD', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
+        ],
+        github: '#',
+        image: '/EcommerceApi.webp',
+      },
+    ],
+  };
 }

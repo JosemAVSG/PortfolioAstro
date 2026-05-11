@@ -1,4 +1,5 @@
 ---
+import { useTranslations } from '../../i18n/utils';
 import { getProjects } from '../../data/projects';
 import ProjectCard from '../molecules/ProjectCard.astro';
 
@@ -7,9 +8,92 @@ interface Props {
 }
 
 const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang as 'es' | 'en');
 const projects = getProjects(lang as 'es' | 'en');
+
+const categories = [
+  { key: 'all', label: t('projects.all') },
+  { key: 'frontend', label: t('projects.frontend') },
+  { key: 'backend', label: t('projects.backend') },
+  { key: 'devops', label: t('projects.devops') },
+];
 ---
 
-{projects.map((project, index) => (
-  <ProjectCard {...project} index={index} />
-))}
+<div id="projects-section">
+  <!-- Tabs -->
+  <div class="flex flex-wrap gap-2 mb-8">
+    {categories.map((cat, index) => (
+      <button
+        class={`tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+          index === 0 
+            ? 'bg-sky-600 text-white shadow-md hover:bg-sky-700' 
+            : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
+        }`}
+        data-category={cat.key}
+      >
+        {cat.label}
+      </button>
+    ))}
+  </div>
+
+  <!-- Project Lists -->
+  <div class="space-y-8">
+    {Object.entries(projects).map(([category, items]) => (
+      <div class="project-category" data-category={category}>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <span class={`w-3 h-3 rounded-full ${
+            category === 'frontend' ? 'bg-sky-500' :
+            category === 'backend' ? 'bg-emerald-500' :
+            'bg-violet-500'
+          }`}></span>
+          {t(`projects.${category}`)}
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {items.map((project, index) => (
+            <ProjectCard 
+              title={project.title}
+              description={project.description}
+              tags={project.tags}
+              github={project.github}
+              link={project.github}
+              image={project.image}
+              index={index}
+            />
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const categories = document.querySelectorAll('.project-category');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.getAttribute('data-category');
+        
+        // Update active tab
+        tabs.forEach(t => {
+          t.classList.remove('bg-sky-600', 'text-white', 'shadow-md', 'hover:bg-sky-700');
+          t.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-400', 'border', 'border-gray-200', 'dark:border-gray-700', 'hover:bg-gray-50', 'dark:hover:bg-gray-700', 'hover:text-gray-900', 'dark:hover:text-white');
+        });
+        tab.classList.add('bg-sky-600', 'text-white', 'shadow-md', 'hover:bg-sky-700');
+        tab.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-400', 'border', 'border-gray-200', 'dark:border-gray-700', 'hover:bg-gray-50', 'dark:hover:bg-gray-700', 'hover:text-gray-900', 'dark:hover:text-white');
+
+        // Show/hide categories
+        categories.forEach(cat => {
+          if (category === 'all') {
+            cat.style.display = 'block';
+          } else if (cat.getAttribute('data-category') === category) {
+            cat.style.display = 'block';
+          } else {
+            cat.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

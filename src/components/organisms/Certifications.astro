@@ -1,0 +1,81 @@
+---
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang as 'es' | 'en');
+---
+
+<section class="mb-12">
+  <h3 class="text-2xl font-bold text-black dark:text-white mb-6 flex items-center gap-3">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-yellow-500" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>
+    {t('certifications.title')}
+  </h3>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- AWS -->
+    <a 
+      href="https://www.credly.com/badges/cdb7dffa-7fc3-4392-9459-4593f62e87f2/linked_in_profile" 
+      target="_blank" 
+      rel="noopener"
+      class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 dark:from-gray-800 dark:to-gray-900 p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-orange-200 dark:border-orange-900"
+    >
+      <div class="absolute top-0 right-0 w-24 h-24 bg-orange-400 rounded-full opacity-10 -translate-y-1/2 translate-x-1/2"></div>
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-14 h-14 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+          <span class="text-white font-bold text-sm">AWS</span>
+        </div>
+        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+        </div>
+      </div>
+      <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Solutions Architect</h4>
+      <p class="text-sm text-orange-600 dark:text-orange-400 font-medium">Amazon Web Services</p>
+    </a>
+
+    <!-- HackerRank -->
+    <a 
+      href="https://www.hackerrank.com/certificates/f7b9208d9f0a" 
+      target="_blank" 
+      rel="noopener"
+      class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-800 dark:to-gray-900 p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-green-200 dark:border-green-900"
+    >
+      <div class="absolute top-0 right-0 w-24 h-24 bg-green-400 rounded-full opacity-10 -translate-y-1/2 translate-x-1/2"></div>
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center shadow-lg">
+          <span class="text-white font-bold text-xs">HR</span>
+        </div>
+        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+        </div>
+      </div>
+      <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-1">Frontend Developer</h4>
+      <p class="text-sm text-green-600 dark:text-green-400 font-medium">HackerRank</p>
+    </a>
+
+    <!-- EFSET -->
+    <a 
+      href="https://cert.efset.org/aiUi3P" 
+      target="_blank" 
+      rel="noopener"
+      class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900 p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-blue-200 dark:border-blue-900"
+    >
+      <div class="absolute top-0 right-0 w-24 h-24 bg-blue-400 rounded-full opacity-10 -translate-y-1/2 translate-x-1/2"></div>
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+          <span class="text-white font-bold text-xs">EF</span>
+        </div>
+        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+        </div>
+      </div>
+      <h4 class="font-bold text-lg text-gray-900 dark:text-white mb-1">C1 English</h4>
+      <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">EFSET - Score: 68/100</p>
+    </a>
+  </div>
+</section>

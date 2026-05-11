@@ -4,7 +4,7 @@ import Badge from '../atoms/Badge.astro';
 import SocialLink from '../molecules/SocialLink.astro';
 import Linkedin from '../../icons/Linkedin.astro';
 import Github from '../../icons/Github.astro';
-import Codepen from '../../icons/Codepen.astro';
+import Mail from '../../icons/Mail.astro';
 
 interface Props {
   lang?: string;
@@ -14,27 +14,54 @@ const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang as 'es' | 'en');
 
 const socialLinks = [
-  { href: 'https://www.linkedin.com/in/josemavsg', label: 'Linkedin', icon: Linkedin },
-  { href: 'https://github.com/JosemAVSG', label: 'Github', icon: Github },
-  { href: 'https://codepen.io/JosemAVSG', label: 'CodePen', icon: Codepen },
+  { href: 'https://www.linkedin.com/in/josemavsg', label: 'LinkedIn', icon: Linkedin },
+  { href: 'https://github.com/JosemAVSG', label: 'GitHub', icon: Github },
+  { href: 'mailto:jmgg.95n@gmail.com', label: 'Email', icon: Mail },
 ];
 ---
 
-<div class="flex flex-row gap-x-4 items-center mb-4">
-  <img class="w-20 h-20 rounded-full" src="https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4" alt="Avatar" />
-  <a href="https://www.linkedin.com/in/josemavsg" target="_blank" rel="noopener" class="flex justify-center items-center md:hover:scale-110 transition-all duration-500 ease-in-out">
-    <Badge>{t('hero.openToWork')}</Badge>
-  </a>
+<div class="max-w-3xl">
+  <div class="flex flex-wrap items-center gap-4 mb-4">
+    <img 
+      class="w-24 h-24 rounded-2xl shadow-lg border-2 border-primary/20" 
+      src="https://avatars.githubusercontent.com/u/107879363?s=400&u=37610b02b2a4947fc2cf337710d5e6986a40f695&v=4" 
+      alt="Jose Miguel González" 
+    />
+    <div>
+      <a
+        href="https://www.linkedin.com/in/josemavsg"
+        target="_blank"
+        rel="noopener"
+      >
+        <Badge>Open to Work</Badge>
+      </a>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Colombia, Cali</p>
+    </div>
+  </div>
+
+  <h1 class="text-4xl md:text-5xl font-bold text-black dark:text-white mb-4">
+    {t('hero.title')}
+  </h1>
+
+  <h2 class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+    {t('hero.subtitle')}
+  </h2>
+
+  <ul class="flex flex-wrap gap-4 list-none p-0 m-0">
+    {socialLinks.map((link) => (
+      <SocialLink {...link} />
+    ))}
+  </ul>
+
+  <!-- Quick Stats -->
+  <div class="flex flex-wrap gap-6 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+    <div>
+      <span class="text-2xl font-bold text-primary">+4</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400 ml-1">years</span>
+    </div>
+    <div>
+      <span class="text-2xl font-bold text-primary">AWS</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400 ml-1">Certified</span>
+    </div>
+  </div>
 </div>
-
-<h1 class="text-black dark:text-white text-2xl lg:text-4xl font-bold flex flex-row gap-x-4 pb-4">
-  🙋‍♂️{t('hero.title')}🚀
-</h1>
-
-<h2 class="text-xl lg:text-2xl text-wrap max-w-[700px] z-[1] opacity-80">
-  {t('hero.subtitle')}
-</h2>
-
-<ul class="flex flex-row gap-x-4 mt-4">
-  {socialLinks.map((link) => (<SocialLink {...link} />))}
-</ul>
