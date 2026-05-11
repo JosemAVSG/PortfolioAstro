@@ -1,10 +1,10 @@
-import type { AstroComponentFactory } from 'astro';
-import type { BaseProps } from './index';
+export type AstroComponent = any;
 
-export interface SocialLinkProps extends BaseProps {
-  href: string;
-  label: string;
-  icon: AstroComponentFactory;
+export interface TechBadgeProps {
+  name: string;
+  class?: string;
+  icon?: AstroComponent;
+  iconClass?: string;
 }
 
 export interface TechBadgeProps extends BaseProps {

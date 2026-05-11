@@ -1,4 +1,4 @@
-import type { AstroComponentFactory } from 'astro';
+export type AstroComponent = any;
 
 export interface BaseProps {
   class?: string;
@@ -20,7 +20,7 @@ export interface NavItem {
 export interface SocialLink {
   href: string;
   label: string;
-  icon: AstroComponentFactory;
+  icon: AstroComponent;
 }
 
 export interface FooterLink {
