@@ -12,11 +12,13 @@ export const translations = {
 } as const;
 
 export type Lang = keyof typeof languages;
-export type TranslationKey = keyof typeof es | string;
+export type TranslationKey = (keyof typeof es) | string;
 
 export function useTranslations(lang: Lang) {
   return function t(key: TranslationKey): string {
-    return translations[lang][key] || translations.es[key];
+    const dict = translations[lang] as Record<string, string>;
+    const fallback = translations.es as Record<string, string>;
+    return dict[key] || fallback[key] || key;
   };
 }
 

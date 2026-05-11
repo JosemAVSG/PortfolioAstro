@@ -1,20 +1,18 @@
 ---
-import type { ProjectCardProps, TechTag } from '../../types/molecules';
+import type { TechTag } from '../../types/molecules';
 import Button from '../atoms/Button.astro';
-import TechBadge from './TechBadge.astro';
 
 interface Props {
   title: string;
   description: string;
   tags: (TechTag | string)[];
   github: string;
-  link?: string;
   image: string;
   index: number;
   class?: string;
 }
 
-const { title, description, tags, github, link, image, index, class: className } = Astro.props;
+const { title, description, tags, github, image, index, class: className } = Astro.props;
 const isEven = index % 2 === 0;
 
 const getBadgeClass = (tag: TechTag | string): string => {
