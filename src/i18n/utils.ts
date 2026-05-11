@@ -12,7 +12,7 @@ export const translations = {
 } as const;
 
 export type Lang = keyof typeof languages;
-export type TranslationKey = keyof typeof es;
+export type TranslationKey = keyof typeof es | string;
 
 export function useTranslations(lang: Lang) {
   return function t(key: TranslationKey): string {

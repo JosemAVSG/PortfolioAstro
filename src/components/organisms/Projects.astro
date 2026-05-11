@@ -85,12 +85,13 @@ const categories = [
 
         // Show/hide categories
         categories.forEach(cat => {
+          const element = cat as HTMLElement;
           if (category === 'all') {
-            cat.style.display = 'block';
+            element.style.display = 'block';
           } else if (cat.getAttribute('data-category') === category) {
-            cat.style.display = 'block';
+            element.style.display = 'block';
           } else {
-            cat.style.display = 'none';
+            element.style.display = 'none';
           }
         });
       });
