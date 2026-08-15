@@ -14,6 +14,16 @@ export interface TechTag {
   icon?: AstroComponent;
 }
 
+export interface Project {
+  title: string;
+  description: string;
+  tags: TechTag[];
+  github: string;
+  link?: string;
+  image: string;
+  images?: string[];
+}
+
 export interface ProjectCardProps extends BaseProps {
   title: string;
   description: string;

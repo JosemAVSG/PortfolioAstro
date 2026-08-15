@@ -1,5 +1,5 @@
 import { useTranslations } from '../i18n/utils';
-import type { TechTag } from '../types/molecules';
+import type { Project, TechTag } from '../types/molecules';
 import React from '../icons/React.astro';
 import Next from '../icons/Next.astro';
 import Tailwind from '../icons/Tailwind.astro';
@@ -18,7 +18,7 @@ const TAGS: Record<string, TechTag> = {
   NESTJS: { name: 'NestJS', class: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300', icon: Nestjs },
 };
 
-export function getProjects(lang: 'es' | 'en') {
+export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
   const t = useTranslations(lang) as any;
   
   return {
