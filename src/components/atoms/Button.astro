@@ -3,7 +3,7 @@ import type { ButtonProps } from '../../types';
 
 interface Props extends ButtonProps {}
 
-const { href, variant = 'primary', class: className } = Astro.props;
+const { href, variant = 'primary', target, rel, class: className } = Astro.props;
 
 const baseClasses =
   'inline-flex items-center justify-center gap-2 px-3 py-2 text-base text-white transition border rounded-xl focus-visible:ring-yellow-500/80 hover:bg-gray-800 hover:border-gray-900 group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black';
@@ -17,6 +17,8 @@ const variantClasses = {
 <a
   href={href}
   role="link"
+  target={target}
+  rel={rel}
   class:list={[baseClasses, variantClasses[variant], className]}
 >
   <slot />

@@ -26,16 +26,11 @@ export function getProjects(lang: 'es' | 'en') {
       {
         title: t('proj_fe_1_title'),
         description: t('proj_fe_1_desc'),
-        tags: [TAGS.REACT, TAGS.NEXT, TAGS.TAILWIND],
-        github: 'https://github.com/JosemAVSG/manu_portfolio',
-        image: '/ManuPortfolio.webp',
-      },
-      {
-        title: t('proj_fe_2_title'),
-        description: t('proj_fe_2_desc'),
         tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],
         github: 'https://github.com/JosemAVSG/Sistema-de-inventario-Client',
+        link: 'https://sistema-de-inventario-client.vercel.app/',
         image: '/inventory.webp',
+        images: ['/inventory.webp'],
       },
     ],
     backend: [

@@ -2,6 +2,7 @@
 import { useTranslations } from '../../i18n/utils';
 import { getProjects } from '../../data/projects';
 import ProjectCard from '../molecules/ProjectCard.astro';
+import ImageLightbox from '../molecules/ImageLightbox.astro';
 
 interface Props {
   lang?: string;
@@ -55,14 +56,19 @@ const categories = [
               description={project.description}
               tags={project.tags}
               github={project.github}
+              link={project.link}
               image={project.image}
+              images={project.images}
               index={index}
+              codeLabel={t('projects.code')}
+              demoLabel={t('projects.preview')}
             />
           ))}
         </div>
       </div>
     ))}
   </div>
+  <ImageLightbox />
 </div>
 
 <script>

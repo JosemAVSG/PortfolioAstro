@@ -56,6 +56,8 @@ export type ButtonVariant = 'primary' | 'secondary';
 export interface ButtonProps extends BaseProps {
   href: string;
   variant?: ButtonVariant;
+  target?: string;
+  rel?: string;
 }
 
 export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;

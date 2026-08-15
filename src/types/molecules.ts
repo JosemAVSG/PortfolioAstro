@@ -21,6 +21,7 @@ export interface ProjectCardProps extends BaseProps {
   github: string;
   link?: string;
   image: string;
+  images?: string[];
   index: number;
 }
 

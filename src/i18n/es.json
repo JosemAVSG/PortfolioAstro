@@ -37,8 +37,6 @@
 
   "proj_fe_1_title": "Dashboard de Inventario",
   "proj_fe_1_desc": "Sistema de gestión de inventario en tiempo real con React y Zustand.",
-  "proj_fe_2_title": "App WebView Móvil",
-  "proj_fe_2_desc": "Interfaz web optimizada para integración con aplicación móvil nativa.",
 
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",

@@ -7,13 +7,18 @@ interface Props {
   description: string;
   tags: (TechTag | string)[];
   github: string;
+  link?: string;
   image: string;
+  images?: string[];
   index: number;
+  codeLabel?: string;
+  demoLabel?: string;
   class?: string;
 }
 
-const { title, description, tags, github, image, index, class: className } = Astro.props;
+const { title, description, tags, github, link, image, images, index, codeLabel = 'Code', demoLabel = 'Demo', class: className } = Astro.props;
 const isEven = index % 2 === 0;
+const gallery = images && images.length ? images : [image];
 
 const getBadgeClass = (tag: TechTag | string): string => {
   if (typeof tag === 'string') {
@@ -43,18 +48,29 @@ const getBadgeName = (tag: TechTag | string): string => {
     <p class="text-base text-gray-600 dark:text-gray-300 mb-2 text-pretty">{description}</p>
     <footer class="flex items-end justify-start mt-4 gap-x-4">
       {github && github !== '#' && (
-        <Button href={github}>Code</Button>
+        <Button href={github}>{codeLabel}</Button>
+      )}
+      {link && (
+        <Button href={link} variant="secondary" target="_blank" rel="noopener noreferrer">{demoLabel}</Button>
       )}
     </footer>
   </div>
   <div class="w-full md:w-1/2">
-    <img
-      class:list={[
-        'rounded-xl shadow-lg w-full h-48 object-cover transition-all duration-500 ease-in-out transform hover:scale-105',
-        isEven ? 'hover:rotate-2' : 'hover:-rotate-2',
-      ]}
-      src={image}
-      alt={`Screenshot of ${title}`}
-    />
+    <button
+      type="button"
+      data-lightbox-trigger
+      data-lightbox-images={JSON.stringify(gallery)}
+      aria-label={`Open image gallery for ${title}`}
+      class="block w-full cursor-zoom-in p-0 bg-transparent border-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 rounded-xl"
+    >
+      <img
+        class:list={[
+          'rounded-xl shadow-lg w-full h-48 object-cover transition-all duration-500 ease-in-out transform hover:scale-105',
+          isEven ? 'hover:rotate-2' : 'hover:-rotate-2',
+        ]}
+        src={image}
+        alt={`Screenshot of ${title}`}
+      />
+    </button>
   </div>
 </article>
