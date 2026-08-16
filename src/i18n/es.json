@@ -38,6 +38,9 @@
   "proj_fe_1_title": "Dashboard de Inventario",
   "proj_fe_1_desc": "Sistema de gestión de inventario en tiempo real con React y Zustand.",
 
+  "proj_fe_2_title": "FS Pizzeria",
+  "proj_fe_2_desc": "Aplicación de menú y pedidos para pizzería con React, TypeScript y Supabase.",
+
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
   "proj_be_2_title": "API Citas Médicas",
