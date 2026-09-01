@@ -17,6 +17,8 @@ const TAGS: Record<string, TechTag> = {
   TYPEORM: { name: 'TypeORM', class: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300', icon: TypeORm },
   NESTJS: { name: 'NestJS', class: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300', icon: Nestjs },
   SUPABASE: { name: 'Supabase', class: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300', icon: null as any },
+  JAVA: { name: 'Java', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
+  SPRING: { name: 'Spring Boot', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
 };
 
 export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
@@ -42,6 +44,15 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         image: '/fs-pizzeria.png',
         images: ['/fs-pizzeria.png'],
       },
+      {
+        title: t('proj_fe_3_title'),
+        description: t('proj_fe_3_desc'),
+        tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+        github: '#',
+        link: 'https://mobile-repair-front.vercel.app/',
+        image: '/Mobilerepair.png',
+        images: ['/Mobilerepair.png', '/Mobilerepair-reparaciones.png'],
+      },
     ],
     backend: [
       {
@@ -57,6 +68,14 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         tags: [TAGS.EXPRESS, TAGS.TYPESCRIPT, TAGS.REACT],
         github: 'https://github.com/JosemAVSG/Sistema-de-Citas-PetCare',
         image: '/Petcare.webp',
+      },
+      {
+        title: t('proj_be_3_title'),
+        description: t('proj_be_3_desc'),
+        tags: [TAGS.JAVA, TAGS.SPRING, TAGS.TYPESCRIPT],
+        github: '#',
+        link: 'https://mobile-repair-front.vercel.app/',
+        image: '/Mobilerepair-reparaciones.png',
       },
     ],
     devops: [

@@ -41,10 +41,15 @@
   "proj_fe_2_title": "FS Pizzeria",
   "proj_fe_2_desc": "Aplicación de menú y pedidos para pizzería con React, TypeScript y Supabase.",
 
+  "proj_fe_3_title": "Mobile Repair",
+  "proj_fe_3_desc": "Aplicación de gestión y reparación de dispositivos móviles con React, TypeScript y Tailwind.",
+
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
   "proj_be_2_title": "API Citas Médicas",
   "proj_be_2_desc": "Backend con Express, MongoDB y autenticación JWT para gestión de citas.",
+  "proj_be_3_title": "Mobile Repair API",
+  "proj_be_3_desc": "Backend REST con Java, Spring Boot y autenticación JWT para el sistema de reparación de móviles.",
 
   "proj_dev_1_title": "Infraestructura AWS",
   "proj_dev_1_desc": "Configuración de servicios AWS con Docker, alta disponibilidad y CI/CD.",

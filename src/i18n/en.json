@@ -41,10 +41,15 @@
   "proj_fe_2_title": "FS Pizzeria",
   "proj_fe_2_desc": "Pizza menu and ordering app built with React, TypeScript and Supabase.",
 
+  "proj_fe_3_title": "Mobile Repair",
+  "proj_fe_3_desc": "Mobile device repair and management app built with React, TypeScript and Tailwind.",
+
   "proj_be_1_title": "E-commerce API",
   "proj_be_1_desc": "Complete REST API with NestJS, TypeORM, JWT auth and PostgreSQL.",
   "proj_be_2_title": "Medical Appointments API",
   "proj_be_2_desc": "Backend with Express, MongoDB and JWT authentication for appointments.",
+  "proj_be_3_title": "Mobile Repair API",
+  "proj_be_3_desc": "REST backend with Java, Spring Boot and JWT authentication for the mobile repair system.",
 
   "proj_dev_1_title": "AWS Infrastructure",
   "proj_dev_1_desc": "AWS services configuration with Docker, high availability and CI/CD.",
