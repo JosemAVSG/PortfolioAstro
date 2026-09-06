@@ -24,18 +24,33 @@ const currentPage = lang === 'es' ? '/en' : '/es';
 >
   <nav
     id="navbar"
-    class="flex flex-row gap-x-10 rounded-full px-8 py-2"
+    class="flex flex-row items-center gap-x-1.5 sm:gap-x-6 md:gap-x-8 rounded-full px-2 sm:px-8 py-2"
   >
-    <ul class="flex gap-4">
+    <ul
+      id="nav-list"
+      class="relative z-0 flex items-center gap-x-1 sm:gap-x-3 md:gap-x-4"
+    >
+      <!-- Morphic sliding pill: positioned by JS under the active anchor -->
+      <li
+        id="nav-pill"
+        aria-hidden="true"
+        class="pointer-events-none absolute left-0 top-0 -z-10 rounded-full bg-gray-900 opacity-0 will-change-transform transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] dark:bg-white"
+      ></li>
       {navItems.map((item) => (
-        <li
-          class="hover:text-primary hover:scale-125 hover:bg-slate-500 rounded-full px-2 transition-all duration-500 ease-in-out"
-        >
-          <a href={item.href}>{item.label}</a>
+        <li>
+          <a
+            href={item.href}
+            data-nav-target={
+              item.href.startsWith('#') ? item.href.slice(1) : undefined
+            }
+            class="nav-link block whitespace-nowrap rounded-full px-1 py-1 text-xs transition-colors duration-300 hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:px-2.5 sm:py-1.5 sm:text-sm md:px-3.5"
+          >
+            {item.label}
+          </a>
         </li>
       ))}
     </ul>
-    <a href={currentPage} class="hover:scale-125 transition font-bold text-xs px-2 py-1 rounded">
+    <a href={currentPage} class="hover:scale-125 transition font-bold text-xs px-1.5 sm:px-2 py-1 rounded">
       {currentPage === '/es' ? 'ES' : 'EN'}
     </a>
     <ThemeToggle />
@@ -45,6 +60,28 @@ const currentPage = lang === 'es' ? '/en' : '/es';
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.getElementById('navbar');
+    const list = document.getElementById('nav-list');
+    const pill = document.getElementById('nav-pill');
+    const links: HTMLAnchorElement[] = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>('#nav-list a[data-nav-target]')
+    );
+    const sectionIds: string[] = links
+      .map((link) => link.dataset.navTarget)
+      .filter((id): id is string => Boolean(id));
+
+    // Classes toggled on the active anchor (pill landed) vs. inactive ones.
+    const ACTIVE_CLASSES = [
+      'text-white',
+      'hover:text-white',
+      'dark:text-gray-900',
+      'dark:hover:text-gray-900',
+      'font-semibold',
+    ];
+    const INACTIVE_CLASSES = ['hover:text-primary'];
+
+    let activeIndex = -1;
+
+    // Existing scroll background behavior: bg + shadow after 50px of scroll.
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         navbar?.classList.add('bg-slate-500', 'shadow-md');
@@ -54,5 +91,129 @@ const currentPage = lang === 'es' ? '/en' : '/es';
         navbar?.classList.remove('bg-slate-500', 'shadow-md');
       }
     });
+
+    const updateLinks = (index: number) => {
+      links.forEach((link, i) => {
+        const on = i === index;
+        ACTIVE_CLASSES.forEach((cls) => link.classList.toggle(cls, on));
+        INACTIVE_CLASSES.forEach((cls) => link.classList.toggle(cls, !on));
+        if (on) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    // Slide the pill under the anchor at `index`, measured relative to the list.
+    // `instant` skips the transition (first landing, resize, font settle).
+    const positionPill = (index: number, instant: boolean) => {
+      const link = links[index];
+      if (!link || !list || !pill) return;
+      const listRect = list.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const previousTransition = pill.style.transition;
+      if (instant) pill.style.transition = 'none';
+      pill.style.width = `${linkRect.width}px`;
+      pill.style.height = `${linkRect.height}px`;
+      pill.style.transform = `translate3d(${linkRect.left - listRect.left}px, ${linkRect.top - listRect.top}px, 0)`;
+      if (instant) {
+        // Force style flush so the transition-free geometry is applied first.
+        void pill.offsetWidth;
+        pill.style.transition = previousTransition;
+      }
+    };
+
+    const setActive = (index: number) => {
+      if (index === activeIndex) return;
+      const wasVisible = activeIndex >= 0;
+      activeIndex = index;
+      updateLinks(index);
+      if (index < 0) {
+        pill?.classList.add('opacity-0');
+      } else {
+        // First landing: snap the pill in place, then fade it in.
+        positionPill(index, !wasVisible);
+        pill?.classList.remove('opacity-0');
+      }
+    };
+
+    // Scrollspy: deterministic scroll-position based (no IntersectionObserver).
+    // A section becomes active when its top edge crosses a marker line placed
+    // just under the sticky header (header height + 12px). Sections are
+    // contiguous, so the active section is simply the LAST one whose top is
+    // above the marker; scrolling past the last section (into the footer)
+    // keeps it active automatically.
+    let sections: { id: string; el: HTMLElement }[] = [];
+    let marker = 96;
+
+    const measure = () => {
+      const headerEl = document.getElementById('navbar')?.closest('header');
+      const headerHeight = headerEl?.getBoundingClientRect().height ?? 56;
+      marker = headerHeight + 12;
+      sections = sectionIds
+        .map((id) => {
+          const el = document.getElementById(id);
+          return el ? { id, el } : null;
+        })
+        .filter((s): s is { id: string; el: HTMLElement } => Boolean(s));
+    };
+
+    const onScroll = () => {
+      const target = window.scrollY + marker;
+      let index = -1;
+      for (let i = 0; i < sections.length; i++) {
+        const top = sections[i].el.getBoundingClientRect().top + window.scrollY;
+        if (top <= target) index = i;
+        else break;
+      }
+      // Near the page bottom, the last section is what the user is reading
+      // even if its top edge hasn't crossed the marker yet (the footer stops
+      // the scroll before the last section can pass under the header).
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (sections.length > 0 && window.scrollY >= maxScroll - 2) {
+        index = sections.length - 1;
+      }
+      setActive(index);
+    };
+
+    let ticking = false;
+    const scheduleScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        onScroll();
+      });
+    };
+
+    measure();
+    onScroll();
+
+    window.addEventListener('scroll', scheduleScroll, { passive: true });
+
+    // Re-measure on resize (instant) and after fonts settle on `load`. The
+    // ES/EN switch is a full page navigation, so the fresh page re-runs this
+    // setup; the `load` pass covers font-driven width shift.
+    window.addEventListener(
+      'resize',
+      () => {
+        measure();
+        onScroll();
+        if (activeIndex >= 0) positionPill(activeIndex, true);
+      },
+      { passive: true }
+    );
+    window.addEventListener('load', () => {
+      measure();
+      onScroll();
+      if (activeIndex >= 0) positionPill(activeIndex, true);
+    });
   });
 </script>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    #nav-pill,
+    .nav-link {
+      transition: none !important;
+    }
+  }
+</style>

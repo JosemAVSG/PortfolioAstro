@@ -38,12 +38,17 @@ const { description, title, lang = 'es' } = Astro.props;
   }
   html {
     font-family: "Onest Variable", system-ui, sans-serif;
+    /* Keep anchor jumps clear of the sticky header */
+    scroll-padding-top: 96px;
   }
   body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     scroll-behavior: smooth;
+    /* App-like cursor: arrow over text instead of the I-beam; links and
+       inputs keep their native cursors (UA stylesheet overrides). */
+    cursor: default;
   }
   @media (prefers-reduced-motion: reduce) {
     html {

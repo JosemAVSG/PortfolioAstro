@@ -1,6 +1,9 @@
 ---
 import type { TechTag } from '../../types/molecules';
 import Button from '../atoms/Button.astro';
+import Github from '../../icons/Github.astro';
+import Link from '../../icons/Link.astro';
+import Camera from '../../icons/Camera.astro';
 
 interface Props {
   title: string;
@@ -13,11 +16,23 @@ interface Props {
   index: number;
   codeLabel?: string;
   demoLabel?: string;
+  photosLabel?: string;
   class?: string;
 }
 
-const { title, description, tags, github, link, image, images, index, codeLabel = 'Code', demoLabel = 'Demo', class: className } = Astro.props;
-const isEven = index % 2 === 0;
+const {
+  title,
+  description,
+  tags,
+  github,
+  link,
+  image,
+  images,
+  codeLabel = 'Code',
+  demoLabel = 'Demo',
+  photosLabel = 'Photos',
+  class: className,
+} = Astro.props;
 const gallery = images && images.length ? images : [image];
 
 const getBadgeClass = (tag: TechTag | string): string => {
@@ -33,44 +48,157 @@ const getBadgeName = (tag: TechTag | string): string => {
 };
 ---
 
-<article class:list={['w-full p-4 flex flex-col md:flex-row gap-x-8 gap-y-8', className]}>
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
-    <ul class="flex gap-2 flex-wrap">
-      {tags.map((tag) => (
-        <li>
-          <span class:list={['inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium', getBadgeClass(tag)]}>
-            {getBadgeName(tag)}
-          </span>
-        </li>
-      ))}
-    </ul>
-    <p class="text-base text-gray-600 dark:text-gray-300 mb-2 text-pretty">{description}</p>
-    <footer class="flex items-end justify-start mt-4 gap-x-4">
-      {github && github !== '#' && (
-        <Button href={github}>{codeLabel}</Button>
-      )}
-      {link && (
-        <Button href={link} variant="secondary" target="_blank" rel="noopener noreferrer">{demoLabel}</Button>
-      )}
-    </footer>
-  </div>
-  <div class="w-full md:w-1/2">
-    <button
-      type="button"
-      data-lightbox-trigger
-      data-lightbox-images={JSON.stringify(gallery)}
-      aria-label={`Open image gallery for ${title}`}
-      class="block w-full cursor-zoom-in p-0 bg-transparent border-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 rounded-xl"
-    >
+<!--
+  Flip card (KokonutUI card-flip visual port):
+  - Square 1:1 faces: front = project screenshot + title overlay; the lightbox
+    trigger lives on the BACK face ("Photos" button), not the image.
+  - Back face: description, tech badges, actions (Code / Demo / Photos).
+  - Desktop: flips on hover (pure CSS, hover-capable devices only).
+  - Touch/keyboard: a tiny scoped script toggles .is-flipped.
+  - prefers-reduced-motion: flip disabled, front face stays.
+  Note: the article itself is focusable + interactive (tabindex="0") so
+  keyboard users can flip it with Enter / Space.
+-->
+<article
+  class:list={[
+    'flip-scene relative w-full aspect-square rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2',
+    className,
+  ]}
+  tabindex="0"
+>
+  <div class="flip-inner relative h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]">
+    <!-- FRONT FACE: screenshot + title -->
+    <div class="flip-face front absolute inset-0 overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-neutral-900">
       <img
-        class:list={[
-          'rounded-xl shadow-lg w-full h-48 object-cover transition-all duration-500 ease-in-out transform hover:scale-105',
-          isEven ? 'hover:rotate-2' : 'hover:-rotate-2',
-        ]}
+        class="absolute inset-0 h-full w-full object-cover"
         src={image}
         alt={`Screenshot of ${title}`}
+        loading="lazy"
       />
-    </button>
+      <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent px-5 pb-4 pt-14">
+        <h3 class="text-lg font-bold text-white">{title}</h3>
+      </div>
+    </div>
+
+    <!-- BACK FACE: description + badges + actions -->
+    <div class="flip-face back absolute inset-0 flex flex-col overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5 [transform:rotateY(180deg)]">
+      <div class="min-h-0 flex-1 overflow-y-auto">
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white">{title}</h3>
+        <ul class="mt-2 flex flex-wrap gap-2 list-none p-0 m-0">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class:list={[
+                  'inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium',
+                  getBadgeClass(tag),
+                ]}
+              >
+                {getBadgeName(tag)}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-3 text-sm text-gray-600 dark:text-gray-300 text-pretty">{description}</p>
+      </div>
+
+      <footer class="mt-4 flex flex-wrap gap-2 border-t border-gray-200 dark:border-gray-700 pt-4">
+        {github && github !== '#' && (
+          <Button href={github} class="!py-1.5 !px-3 text-sm">
+            <Github class="size-4" />
+            {codeLabel}
+          </Button>
+        )}
+        {link && (
+          <Button href={link} variant="secondary" target="_blank" rel="noopener noreferrer" class="!py-1.5 !px-3 text-sm">
+            <Link class="size-4" />
+            {demoLabel}
+          </Button>
+        )}
+        <button
+          type="button"
+          data-lightbox-trigger
+          data-lightbox-images={JSON.stringify(gallery)}
+          aria-label={`Open image gallery for ${title}`}
+          class="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-600 px-3 py-1.5 text-sm text-gray-800 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-800"
+        >
+          <Camera class="size-4" />
+          {photosLabel}
+        </button>
+      </footer>
+    </div>
   </div>
+
+  <!-- Shine sweep overlay (outside the 3D layer so it stays visible on hover) -->
+  <div
+    aria-hidden="true"
+    class="shine-sweep pointer-events-none absolute inset-y-0 left-0 z-10 w-1/2 -translate-x-full -skew-x-12 bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 transition-all duration-700"
+  ></div>
 </article>
+
+<style>
+  .flip-scene {
+    -webkit-perspective: 1600px;
+    perspective: 1600px;
+  }
+
+  .flip-inner {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .flip-face {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Touch/keyboard flip (toggled by the small scoped script below) */
+  .flip-scene.is-flipped .flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Desktop hover flip — only on hover-capable devices, and only when the
+     user does not request reduced motion (avoids tap-vs-hover double flips
+     on touch screens, where sticky :hover would fight the script). */
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .flip-scene:hover .flip-inner {
+      transform: rotateY(180deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .flip-inner {
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Progressive enhancement ONLY: on hover-capable desktops the CSS :hover
+  // rule handles the flip; on touch/keyboard we toggle .is-flipped.
+  const prefersHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReducedMotion) {
+    document.querySelectorAll<HTMLElement>('.flip-scene').forEach((scene) => {
+      const toggle = (): void => {
+        scene.classList.toggle('is-flipped');
+      };
+
+      scene.addEventListener('click', (event) => {
+        if (prefersHover) return;
+        // Let links/buttons on the back face work without flipping back.
+        if ((event.target as HTMLElement).closest('a, button')) return;
+        toggle();
+      });
+
+      scene.addEventListener('keydown', (event) => {
+        if (event.target !== scene) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggle();
+        }
+      });
+    });
+  }
+</script>

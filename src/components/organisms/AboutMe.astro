@@ -17,8 +17,8 @@ const bio = [
 ];
 
 const skills = lang === 'es' 
-  ? ['React', 'Next.js', 'TypeScript', 'Node.js', 'NestJS', 'AWS', 'PostgreSQL', 'MongoDB', 'Docker']
-  : ['React', 'Next.js', 'TypeScript', 'Node.js', 'NestJS', 'AWS', 'PostgreSQL', 'MongoDB', 'Docker'];
+  ? ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'Express', 'Zustand', 'Redux', 'PostgreSQL', 'MongoDB', 'MySQL', 'AWS', 'Docker', 'Terraform']
+  : ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Node.js', 'NestJS', 'Express', 'Zustand', 'Redux', 'PostgreSQL', 'MongoDB', 'MySQL', 'AWS', 'Docker', 'Terraform'];
 ---
 
 <section class="space-y-8">
@@ -40,9 +40,9 @@ const skills = lang === 'es'
     <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
       {lang === 'es' ? 'Tech Stack' : 'Tech Stack'}
     </h4>
-    <div class="flex flex-wrap gap-3">
+    <div class="skill-pills flex gap-3">
       {skills.map((skill) => (
-        <span class="px-3 py-1.5 bg-white shadow-sm dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full font-medium hover:bg-primary/10 hover:text-primary transition-colors">
+        <span class="skill-pill flex-1 text-center px-3 py-1.5 bg-white shadow-sm dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full font-medium hover:bg-primary/10 hover:text-primary">
           {skill}
         </span>
       ))}
@@ -51,6 +51,33 @@ const skills = lang === 'es'
 </section>
 
 <style>
+  /* Balanced pill rows: flex-wrap: balance distributes the pills so every
+     line has a similar number of items (no orphan pill on the last line).
+     New CSS (2026) — the plain `wrap` declaration before it is the fallback
+     for browsers that don't support the `balance` keyword yet. */
+  .skill-pills {
+    flex-wrap: wrap;
+    flex-wrap: wrap balance;
+  }
+
+  /* Pills: full-width (flex-1) chips that glow on hover. No magnetic motion. */
+  .skill-pill {
+    cursor: default;
+    transition: box-shadow 0.25s ease, background-color 0.25s ease;
+  }
+
+  .skill-pill:hover {
+    box-shadow:
+      0 0 0 1px rgba(14, 165, 233, 0.45),
+      0 4px 16px -4px rgba(14, 165, 233, 0.5);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skill-pill {
+      transition: none;
+    }
+  }
+
   .hero-img {
     display: flex;
     justify-content: center;

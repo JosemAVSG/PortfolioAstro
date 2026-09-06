@@ -5,10 +5,12 @@
   "nav.contact": "Contacto",
   "nav.certifications": "Certificaciones",
 
-  "hero.title": "Hola, Soy Jose Miguel González",
-  "hero.subtitle": "Desarrollador Full Stack especializado en React, Node.js y soluciones cloud. +4 años de experiencia construyendo aplicaciones escalables y de alto rendimiento.",
+  "hero.title": "Soy Jose Miguel González",
+  "hero.greetingFinal": "Hola",
+  "hero.subtitle": "Desarrollador Full Stack especializado en React, Node.js y soluciones cloud. AWS Certified Solutions Architect – Associate. +4 años de experiencia construyendo aplicaciones escalables y de alto rendimiento.",
   "hero.openToWork": "Open to Work",
   "hero.cta": "Ver proyectos",
+  "hero.downloadCv": "Descargar CV",
 
   "experience.title": "Experiencia Profesional",
   "experience.learnMore": "Ver más",
@@ -16,7 +18,7 @@
   "exp_role_agrimanager": "Frontend Web Developer",
   "exp_desc_agrimanager": "Desarrollo y mantenimiento de módulos frontend. WebView para app móvil. Nuevo módulo completo. Integración REST APIs. Tecnologías: React, TypeScript, Zustand.",
   
-  "exp_role_astrolle": "Frontend Web Developer",
+  "exp_role_astrolle": "Desarrollador Full Stack",
   "exp_desc_astrolle": "Desarrollo en arquitectura Micro Frontends con React. Implementación de funcionalidades REST APIs. Creación de componentes reutilizables.",
   
   "exp_role_abc": "Full Stack Developer (MERN)",
@@ -34,6 +36,7 @@
   "projects.devops": "DevOps",
   "projects.code": "Código",
   "projects.preview": "Demo",
+  "projects.photos": "Fotos",
 
   "proj_fe_1_title": "Dashboard de Inventario",
   "proj_fe_1_desc": "Sistema de gestión de inventario en tiempo real con React y Zustand.",
@@ -57,7 +60,7 @@
   "about.title": "Acerca de mí",
   "about.bio1": "Desarrollador Full Stack orientado a resultados, especializado en JavaScript, React y Node.js. +4 años de experiencia construyendo aplicaciones web escalables y de alto rendimiento.",
   "about.bio2": "Experiencia en APIs RESTful, arquitecturas modulares, bases de datos (PostgreSQL, MongoDB, MySQL), Redux/Zustand, y certificación AWS Solutions Architect.",
-  "about.bio3": "Técnico Superior en Informática (UPTNM). Full Stack Developer en Bootcamp Soy Henry. Passionate por crear soluciones que impactan y trabajo en equipo.",
+  "about.bio3": "Técnico Superior en Informática (UPTNM). Full Stack Developer en Bootcamp Soy Henry. Apasionado por crear soluciones que impactan y el trabajo en equipo.",
 
   "footer.copyright": "Hecho con ❤️ por JosemAVSG",
   "meta.description": "Jose Miguel González - Full Stack Developer especializado en React, Node.js, AWS. +4 años de experiencia en aplicaciones escalables."

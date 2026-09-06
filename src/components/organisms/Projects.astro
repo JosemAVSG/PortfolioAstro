@@ -49,7 +49,7 @@ const categories = [
           }`}></span>
           {t(`projects.${category}`)}
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="spotlight-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((project, index) => (
             <ProjectCard 
               title={project.title}
@@ -62,6 +62,7 @@ const categories = [
               index={index}
               codeLabel={t('projects.code')}
               demoLabel={t('projects.preview')}
+              photosLabel={t('projects.photos')}
             />
           ))}
         </div>
@@ -70,6 +71,46 @@ const categories = [
   </div>
   <ImageLightbox />
 </div>
+
+<!--
+  Spotlight / glow grid (KokonutUI spotlight-cards visual port, pure CSS):
+  hovering one card dims its siblings via :has(); the hovered card keeps full
+  opacity and gains a glow shadow; the shine sweep is handled by
+  .shine-sweep inside each card (defined in ProjectCard.astro).
+-->
+<style is:global>
+  .flip-scene {
+    transition-property: opacity, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+
+  .spotlight-grid:has(.flip-scene:hover) .flip-scene {
+    opacity: 0.45;
+  }
+
+  .spotlight-grid:has(.flip-scene:hover) .flip-scene:hover,
+  .spotlight-grid:has(.flip-scene:hover) .flip-scene:focus-visible {
+    opacity: 1;
+  }
+
+  .flip-scene:hover {
+    box-shadow:
+      0 0 0 1px rgba(14, 165, 233, 0.55),
+      0 18px 45px -12px rgba(14, 165, 233, 0.45);
+  }
+
+  .flip-scene:hover .shine-sweep {
+    transform: translateX(280%) skewX(-12deg);
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shine-sweep {
+      display: none;
+    }
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
