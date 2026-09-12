@@ -20,6 +20,8 @@ const TAGS: Record<string, TechTag> = {
   JAVA: { name: 'Java', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
   SPRING: { name: 'Spring Boot', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
   AWS: { name: 'AWS', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
+  TERRAFORM: { name: 'Terraform', class: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300', icon: null as any },
+  IAC: { name: 'IaC', class: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300', icon: null as any },
 };
 
 export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
@@ -75,21 +77,17 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         description: t('proj_be_3_desc'),
         tags: [TAGS.JAVA, TAGS.SPRING, TAGS.TYPESCRIPT],
         github: '#',
-        link: 'https://mobile-repair-front.vercel.app/',
-        image: '/Mobilerepair-reparaciones.png',
+        link: 'https://reparaciones-api.onrender.com/swagger-ui/index.html',
+        image: '/mobile-repair-swagger.webp',
       },
     ],
     devops: [
       {
         title: t('proj_dev_1_title'),
         description: t('proj_dev_1_desc'),
-        tags: [
-          { name: 'Docker', class: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300', icon: null as any },
-          { name: 'AWS', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
-          { name: 'CI/CD', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
-        ],
-        github: '#',
-        image: '/EcommerceApi.webp',
+        tags: [TAGS.TERRAFORM, TAGS.AWS, TAGS.IAC],
+        github: 'https://github.com/JosemAVSG/terraform-infra',
+        image: '/terraform-infra.webp',
       },
       {
         title: t('proj_dev_2_title'),

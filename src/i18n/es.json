@@ -54,8 +54,8 @@
   "proj_be_3_title": "Mobile Repair API",
   "proj_be_3_desc": "Backend REST con Java, Spring Boot y autenticación JWT para el sistema de reparación de móviles.",
 
-  "proj_dev_1_title": "Infraestructura AWS",
-  "proj_dev_1_desc": "Configuración de servicios AWS con Docker, alta disponibilidad y CI/CD.",
+  "proj_dev_1_title": "Infraestructura Terraform",
+  "proj_dev_1_desc": "Práctica de Infrastructure as Code con Terraform — ejercicios de básico a avanzado (Terratest), simulando AWS localmente con Floci/LocalStack.",
 
   "proj_dev_2_title": "AWS Architecture Challenge",
   "proj_dev_2_desc": "Plataforma interactiva para practicar retos de arquitectura AWS con canvas visual, parsing de CloudFormation/Terraform y seguimiento de progreso.",
