@@ -57,6 +57,9 @@
   "proj_dev_1_title": "AWS Infrastructure",
   "proj_dev_1_desc": "AWS services configuration with Docker, high availability and CI/CD.",
 
+  "proj_dev_2_title": "AWS Architecture Challenge",
+  "proj_dev_2_desc": "Interactive platform to practice AWS architecture challenges with a visual canvas, CloudFormation/Terraform parsing and progress tracking.",
+
   "about.title": "About me",
   "about.bio1": "Results-oriented Full Stack Developer specialized in JavaScript, React and Node.js. +4 years building scalable, high-performance web applications.",
   "about.bio2": "Experience with REST APIs, modular architectures, databases (PostgreSQL, MongoDB, MySQL), Redux/Zustand, and AWS Solutions Architect certification.",

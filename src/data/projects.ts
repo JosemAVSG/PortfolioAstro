@@ -19,6 +19,7 @@ const TAGS: Record<string, TechTag> = {
   SUPABASE: { name: 'Supabase', class: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300', icon: null as any },
   JAVA: { name: 'Java', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
   SPRING: { name: 'Spring Boot', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
+  AWS: { name: 'AWS', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
 };
 
 export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
@@ -89,6 +90,19 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         ],
         github: '#',
         image: '/EcommerceApi.webp',
+      },
+      {
+        title: t('proj_dev_2_title'),
+        description: t('proj_dev_2_desc'),
+        tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.AWS],
+        github: '#',
+        link: 'https://aws-architecture-challenge.vercel.app/',
+        image: '/aws-challenge.webp',
+        images: [
+          '/aws-challenge.webp',
+          '/aws-architecture-challenge-scenario.webp',
+          '/aws-architecture-challenge-iac.webp',
+        ],
       },
     ],
   };
