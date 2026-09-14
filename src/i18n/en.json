@@ -57,6 +57,9 @@
   "proj_be_3_title": "Mobile Repair API",
   "proj_be_3_desc": "REST backend with Java, Spring Boot and JWT authentication for the mobile repair system.",
 
+  "proj_be_4_title": "BP Ventures Deliverables System",
+  "proj_be_4_desc": "Deliverables system for BP Ventures consultancy: file management with hierarchies, invoicing and payments, companies module and notifications. API documented in OpenAPI/Swagger with CI (GitHub Actions) syncing it to SwaggerHub.",
+
   "proj_dev_1_title": "Terraform Infra",
   "proj_dev_1_desc": "Infrastructure as Code practice with Terraform — exercises from basic to advanced (Terratest), simulating AWS locally with Floci/LocalStack.",
 

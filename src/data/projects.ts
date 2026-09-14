@@ -17,6 +17,7 @@ const TAGS: Record<string, TechTag> = {
   TYPEORM: { name: 'TypeORM', class: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300', icon: TypeORm },
   NESTJS: { name: 'NestJS', class: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300', icon: Nestjs },
   SUPABASE: { name: 'Supabase', class: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300', icon: null as any },
+  POSTGRES: { name: 'PostgreSQL', class: 'bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300', icon: null as any },
   JAVA: { name: 'Java', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
   SPRING: { name: 'Spring Boot', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
   AWS: { name: 'AWS', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
@@ -88,6 +89,14 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         github: '#',
         link: 'https://reparaciones-api.onrender.com/swagger-ui/index.html',
         image: '/mobile-repair-swagger.webp',
+      },
+      {
+        title: t('proj_be_4_title'),
+        description: t('proj_be_4_desc'),
+        tags: [TAGS.NEXT, TAGS.NESTJS, TAGS.TYPESCRIPT, TAGS.POSTGRES],
+        github: 'https://github.com/JosemAVSG/Henry_PF',
+        link: 'https://www.youtube.com/watch?v=vSBttwQO62k',
+        image: '/bp-ventures.webp',
       },
     ],
     devops: [
