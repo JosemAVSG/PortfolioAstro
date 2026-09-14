@@ -47,6 +47,9 @@
   "proj_fe_3_title": "Mobile Repair",
   "proj_fe_3_desc": "Aplicación de gestión y reparación de dispositivos móviles con React, TypeScript y Tailwind.",
 
+  "proj_fe_4_title": "Dev Coach",
+  "proj_fe_4_desc": "Plataforma para aprender construyendo proyectos reales: genera ideas de proyecto según tu stack y nivel, con guías paso a paso, tareas, pistas y soluciones.",
+
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
   "proj_be_2_title": "API Citas Médicas",

@@ -56,6 +56,15 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         image: '/Mobilerepair.png',
         images: ['/Mobilerepair.png', '/Mobilerepair-reparaciones.png'],
       },
+      {
+        title: t('proj_fe_4_title'),
+        description: t('proj_fe_4_desc'),
+        tags: [TAGS.REACT, TAGS.TYPESCRIPT],
+        github: '#',
+        link: 'https://devcoach.app/',
+        image: '/devcoach-dashboard.webp',
+        images: ['/devcoach-dashboard.webp', '/devcoach.webp'],
+      },
     ],
     backend: [
       {
