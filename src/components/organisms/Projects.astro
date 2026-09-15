@@ -1,7 +1,7 @@
 ---
 import { useTranslations } from '../../i18n/utils';
 import { getProjects } from '../../data/projects';
-import ProjectCard from '../molecules/ProjectCard.astro';
+import ProjectCarousel from '../molecules/ProjectCarousel.astro';
 import ImageLightbox from '../molecules/ImageLightbox.astro';
 
 interface Props {
@@ -41,76 +41,18 @@ const categories = [
   <div class="space-y-8">
     {Object.entries(projects).map(([category, items]) => (
       <div class="project-category" data-category={category}>
-        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-          <span class={`w-3 h-3 rounded-full ${
-            category === 'frontend' ? 'bg-sky-500' :
-            category === 'backend' ? 'bg-emerald-500' :
-            'bg-violet-500'
-          }`}></span>
-          {t(`projects.${category}`)}
-        </h3>
-        <div class="spotlight-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((project, index) => (
-            <ProjectCard 
-              title={project.title}
-              description={project.description}
-              tags={project.tags}
-              github={project.github}
-              link={project.link}
-              image={project.image}
-              images={project.images}
-              index={index}
-              codeLabel={t('projects.code')}
-              demoLabel={t('projects.preview')}
-              photosLabel={t('projects.photos')}
-            />
-          ))}
-        </div>
+        <ProjectCarousel
+          title={t(`projects.${category}`)}
+          items={items}
+          codeLabel={t('projects.code')}
+          demoLabel={t('projects.preview')}
+          photosLabel={t('projects.photos')}
+        />
       </div>
     ))}
   </div>
   <ImageLightbox />
 </div>
-
-<!--
-  Spotlight / glow grid (KokonutUI spotlight-cards visual port, pure CSS):
-  hovering one card dims its siblings via :has(); the hovered card keeps full
-  opacity and gains a glow shadow; the shine sweep is handled by
-  .shine-sweep inside each card (defined in ProjectCard.astro).
--->
-<style is:global>
-  .flip-scene {
-    transition-property: opacity, box-shadow;
-    transition-duration: 300ms;
-    transition-timing-function: ease;
-  }
-
-  .spotlight-grid:has(.flip-scene:hover) .flip-scene {
-    opacity: 0.45;
-  }
-
-  .spotlight-grid:has(.flip-scene:hover) .flip-scene:hover,
-  .spotlight-grid:has(.flip-scene:hover) .flip-scene:focus-visible {
-    opacity: 1;
-  }
-
-  .flip-scene:hover {
-    box-shadow:
-      0 0 0 1px rgba(14, 165, 233, 0.55),
-      0 18px 45px -12px rgba(14, 165, 233, 0.45);
-  }
-
-  .flip-scene:hover .shine-sweep {
-    transform: translateX(280%) skewX(-12deg);
-    opacity: 1;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .shine-sweep {
-      display: none;
-    }
-  }
-</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

@@ -1,0 +1,106 @@
+---
+import type { Project } from '../../types/molecules';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  title: string;
+  items: Project[];
+  codeLabel?: string;
+  demoLabel?: string;
+  photosLabel?: string;
+}
+
+const {
+  title,
+  items,
+  codeLabel = 'Code',
+  demoLabel = 'Demo',
+  photosLabel = 'Photos',
+} = Astro.props;
+---
+
+<div class="project-carousel w-full">
+  <div class="mb-2 flex items-center justify-between">
+    <h3 class="font-medium text-lg md:text-xl tracking-tight text-gray-900 dark:text-white">{title}</h3>
+    <div class="flex items-center gap-1">
+      <button
+        type="button"
+        data-carousel-prev
+        aria-label="Scroll left"
+        class="flex h-7 w-7 items-center justify-center rounded-full border border-gray-200 text-gray-700 transition hover:bg-gray-100 dark:border-gray-800 dark:text-gray-300 dark:hover:bg-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span class="sr-only">Scroll left</span>
+      </button>
+      <button
+        type="button"
+        data-carousel-next
+        aria-label="Scroll right"
+        class="flex h-7 w-7 items-center justify-center rounded-full border border-gray-200 text-gray-700 transition hover:bg-gray-100 dark:border-gray-800 dark:text-gray-300 dark:hover:bg-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <span class="sr-only">Scroll right</span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="scrollbar-hide -mx-1 flex snap-x snap-mandatory gap-3 overflow-x-auto px-1 pb-2"
+    data-carousel-scroll
+    style="scrollbar-width: none; ms-overflow-style: none;"
+  >
+    {items.map((item, index) => (
+      <div class="w-[280px] flex-none snap-start md:w-[300px]">
+        <ProjectCard
+          title={item.title}
+          description={item.description}
+          tags={item.tags}
+          github={item.github}
+          link={item.link}
+          image={item.image}
+          images={item.images}
+          index={index}
+          codeLabel={codeLabel}
+          demoLabel={demoLabel}
+          photosLabel={photosLabel}
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  /* The `scrollbar-hide` utility is not part of the project's Tailwind
+     config, so the webkit scrollbar is hidden here; scrollbar-width is
+     inlined on the container already. */
+  .project-carousel [data-carousel-scroll]::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  // Wire each carousel instance's arrows to its own scroll container.
+  // Scoped via data attributes within each .project-carousel subtree, so
+  // multiple instances on the page never cross wires.
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll<HTMLElement>('.project-carousel').forEach((carousel) => {
+      const container = carousel.querySelector<HTMLElement>('[data-carousel-scroll]');
+      const prevBtn = carousel.querySelector<HTMLElement>('[data-carousel-prev]');
+      const nextBtn = carousel.querySelector<HTMLElement>('[data-carousel-next]');
+
+      if (!container) return;
+
+      prevBtn?.addEventListener('click', () => {
+        container.scrollBy({ left: -320, behavior: 'smooth' });
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        container.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    });
+  });
+</script>
