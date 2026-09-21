@@ -120,6 +120,13 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
           '/aws-architecture-challenge-iac.webp',
         ],
       },
+      {
+        title: t('proj_dev_3_title'),
+        description: t('proj_dev_3_desc'),
+        tags: [TAGS.TERRAFORM, TAGS.AWS, TAGS.IAC],
+        github: 'https://github.com/JosemAVSG/qr-presence',
+        image: '/qr-presence.webp',
+      },
     ],
   };
 }

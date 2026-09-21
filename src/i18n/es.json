@@ -66,6 +66,9 @@
   "proj_dev_2_title": "AWS Architecture Challenge",
   "proj_dev_2_desc": "Plataforma interactiva para practicar retos de arquitectura AWS con canvas visual, parsing de CloudFormation/Terraform y seguimiento de progreso.",
 
+  "proj_dev_3_title": "QR Presence",
+  "proj_dev_3_desc": "Sistema serverless de asistencia y presencia multi-tenant (escuelas y lugares de trabajo): check-in con código QR, validación GPS, notificaciones y reportes. Infraestructura como Código con Terraform y CI/CD con GitHub Actions + OIDC.",
+
   "about.title": "Acerca de mí",
   "about.bio1": "Desarrollador Full Stack orientado a resultados, especializado en JavaScript, React y Node.js. +4 años de experiencia construyendo aplicaciones web escalables y de alto rendimiento.",
   "about.bio2": "Experiencia en APIs RESTful, arquitecturas modulares, bases de datos (PostgreSQL, MongoDB, MySQL), Redux/Zustand, y certificación AWS Solutions Architect.",
