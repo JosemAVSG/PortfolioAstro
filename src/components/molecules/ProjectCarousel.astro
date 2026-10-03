@@ -80,6 +80,38 @@ const {
   .project-carousel [data-carousel-scroll]::-webkit-scrollbar {
     display: none;
   }
+
+  /* Barber-shop style sway: each card oscillates horizontally, alternating
+     direction (odd -> right, even -> left). Transform-only so layout and
+     scroll snapping stay untouched. */
+  .project-carousel [data-carousel-scroll] > div {
+    animation: carousel-sway-right 7s ease-in-out infinite;
+  }
+
+  .project-carousel [data-carousel-scroll] > div:nth-child(even) {
+    animation-name: carousel-sway-left;
+  }
+
+  /* Pause the sway while the user interacts with a carousel. */
+  .project-carousel:hover [data-carousel-scroll] > div {
+    animation-play-state: paused;
+  }
+
+  @keyframes carousel-sway-right {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(14px); }
+  }
+
+  @keyframes carousel-sway-left {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-14px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-carousel [data-carousel-scroll] > div {
+      animation: none;
+    }
+  }
 </style>
 
 <script>

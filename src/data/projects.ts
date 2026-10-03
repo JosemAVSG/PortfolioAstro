@@ -31,6 +31,15 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
   return {
     frontend: [
       {
+        title: t('proj_fe_5_title'),
+        description: t('proj_fe_5_desc'),
+        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        github: '#',
+        link: 'https://growing.jglabs.tech/',
+        image: '/growing.png',
+        images: ['/growing.png'],
+      },
+      {
         title: t('proj_fe_1_title'),
         description: t('proj_fe_1_desc'),
         tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],
@@ -65,15 +74,6 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         link: 'https://devcoach.app/',
         image: '/devcoach-dashboard.webp',
         images: ['/devcoach-dashboard.webp', '/devcoach.webp'],
-      },
-      {
-        title: t('proj_fe_5_title'),
-        description: t('proj_fe_5_desc'),
-        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
-        github: '#',
-        link: 'https://growing.jglabs.tech/',
-        image: '/growing.png',
-        images: ['/growing.png'],
       },
     ],
     backend: [
