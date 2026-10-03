@@ -50,6 +50,9 @@
   "proj_fe_4_title": "Dev Coach",
   "proj_fe_4_desc": "Plataforma para aprender construyendo proyectos reales: genera ideas de proyecto según tu stack y nivel, con guías paso a paso, tareas, pistas y soluciones.",
 
+  "proj_fe_5_title": "Crece y Elige",
+  "proj_fe_5_desc": "Guías y comparativas de productos para bebé: fichas completas, comparador lado a lado y guías de compra de carritos, sillas de coche, cunas, vigilabebés y tronas.",
+
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
   "proj_be_2_title": "API Citas Médicas",

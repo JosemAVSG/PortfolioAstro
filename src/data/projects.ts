@@ -66,6 +66,15 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         image: '/devcoach-dashboard.webp',
         images: ['/devcoach-dashboard.webp', '/devcoach.webp'],
       },
+      {
+        title: t('proj_fe_5_title'),
+        description: t('proj_fe_5_desc'),
+        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        github: '#',
+        link: 'https://growing.jglabs.tech/',
+        image: '/growing.png',
+        images: ['/growing.png'],
+      },
     ],
     backend: [
       {
