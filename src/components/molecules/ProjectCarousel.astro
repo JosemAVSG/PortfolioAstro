@@ -86,7 +86,7 @@ const loopItems = [...items, ...items];
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     document.querySelectorAll<HTMLElement>('[data-carousel-viewport]').forEach((viewport) => {
-      const carousel = viewport.closest('.project-carousel');
+      const carousel = viewport.closest<HTMLElement>('.project-carousel');
       const track = viewport.querySelector<HTMLElement>('[data-carousel-track]');
       if (!carousel || !track) return;
 
