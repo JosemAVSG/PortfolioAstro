@@ -124,11 +124,30 @@ const loopItems = [...items, ...items];
       carousel.addEventListener('mouseenter', () => { paused = true; });
       carousel.addEventListener('mouseleave', () => { paused = false; });
 
-      // Drag with the mouse to scroll freely.
+      // Drag with the mouse to scroll freely. No pointer capture: capturing
+      // would retarget the subsequent click to the container and break the
+      // card's lightbox trigger. Instead, track the drag on window.
       let dragging = false;
       let moved = false;
       let startX = 0;
       let startScroll = 0;
+
+      const onPointerMove = (e: PointerEvent) => {
+        if (!dragging) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        viewport.scrollLeft = startScroll - dx;
+        wrap();
+      };
+
+      const onPointerUp = () => {
+        if (!dragging) return;
+        dragging = false;
+        viewport.classList.remove('is-dragging');
+        window.removeEventListener('pointermove', onPointerMove);
+        window.removeEventListener('pointerup', onPointerUp);
+        window.removeEventListener('pointercancel', onPointerUp);
+      };
 
       viewport.addEventListener('pointerdown', (e) => {
         dragging = true;
@@ -136,27 +155,11 @@ const loopItems = [...items, ...items];
         paused = true;
         startX = e.clientX;
         startScroll = viewport.scrollLeft;
-        viewport.setPointerCapture(e.pointerId);
         viewport.classList.add('is-dragging');
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', onPointerUp);
+        window.addEventListener('pointercancel', onPointerUp);
       });
-
-      viewport.addEventListener('pointermove', (e) => {
-        if (!dragging) return;
-        const dx = e.clientX - startX;
-        if (Math.abs(dx) > 4) moved = true;
-        viewport.scrollLeft = startScroll - dx;
-        wrap();
-      });
-
-      const endDrag = () => {
-        if (!dragging) return;
-        dragging = false;
-        paused = false;
-        viewport.classList.remove('is-dragging');
-      };
-
-      viewport.addEventListener('pointerup', endDrag);
-      viewport.addEventListener('pointercancel', endDrag);
 
       // After a real drag, suppress the click that would otherwise open a card.
       viewport.addEventListener(
