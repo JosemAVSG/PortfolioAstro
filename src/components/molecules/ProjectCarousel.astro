@@ -29,7 +29,7 @@ const loopItems = [...items, ...items];
     <h3 class="font-medium text-lg md:text-xl tracking-tight text-gray-900 dark:text-white">{title}</h3>
   </div>
 
-  <div class="carousel-viewport overflow-hidden">
+  <div class="carousel-viewport" data-carousel-viewport>
     <div class="carousel-track flex gap-3" data-carousel-track>
       {loopItems.map((item, index) => (
         <div class="w-[280px] flex-none md:w-[300px]">
@@ -54,41 +54,135 @@ const loopItems = [...items, ...items];
 
 <style>
   /* Barber-shop marquee: the whole row drifts in one direction. Each
-     carousel instance picks its direction via the data-direction attr
-     (odd rows right, even rows left). Duplicated items + translateX(-50%)
-     make the loop seamless. Pauses on hover so cards stay clickable. */
+     carousel instance picks its direction via the data-direction attr.
+     Scrolling is real (scrollLeft) so the user can drag with the mouse
+     or use the wheel instead of waiting for the full loop. */
   .carousel-viewport {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    touch-action: pan-y;
+    cursor: grab;
     mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
   }
 
+  .carousel-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-viewport.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+  }
+
   .carousel-track {
     width: max-content;
-    animation: marquee-left 32s linear infinite;
-    will-change: transform;
-  }
-
-  .project-carousel[data-direction='right'] .carousel-track {
-    animation-name: marquee-right;
-  }
-
-  .project-carousel:hover .carousel-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes marquee-left {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  @keyframes marquee-right {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .carousel-track {
-      animation: none;
-    }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll<HTMLElement>('[data-carousel-viewport]').forEach((viewport) => {
+      const carousel = viewport.closest('.project-carousel');
+      const track = viewport.querySelector<HTMLElement>('[data-carousel-track]');
+      if (!carousel || !track) return;
+
+      const isRight = carousel.dataset.direction === 'right';
+      const speed = isRight ? -0.9 : 0.9; // px per frame
+      let paused = false;
+      let rafId = 0;
+
+      const halfWidth = () => track.scrollWidth / 2;
+
+      // Keep the loop seamless: wrap back to the identical duplicate half.
+      const wrap = () => {
+        const h = halfWidth();
+        if (isRight) {
+          if (viewport.scrollLeft <= 0) viewport.scrollLeft = h;
+        } else {
+          if (viewport.scrollLeft >= h) viewport.scrollLeft = 0;
+        }
+      };
+
+      const frame = () => {
+        if (!paused && !prefersReduced) {
+          viewport.scrollLeft += speed;
+          wrap();
+        }
+        rafId = requestAnimationFrame(frame);
+      };
+
+      // Start from the second (identical) half when drifting right so the
+      // first visible frame is mid-loop instead of an empty start.
+      if (isRight) viewport.scrollLeft = halfWidth();
+      rafId = requestAnimationFrame(frame);
+
+      // Pause while the pointer is over the row.
+      carousel.addEventListener('mouseenter', () => { paused = true; });
+      carousel.addEventListener('mouseleave', () => { paused = false; });
+
+      // Drag with the mouse to scroll freely.
+      let dragging = false;
+      let moved = false;
+      let startX = 0;
+      let startScroll = 0;
+
+      viewport.addEventListener('pointerdown', (e) => {
+        dragging = true;
+        moved = false;
+        paused = true;
+        startX = e.clientX;
+        startScroll = viewport.scrollLeft;
+        viewport.setPointerCapture(e.pointerId);
+        viewport.classList.add('is-dragging');
+      });
+
+      viewport.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        viewport.scrollLeft = startScroll - dx;
+        wrap();
+      });
+
+      const endDrag = () => {
+        if (!dragging) return;
+        dragging = false;
+        paused = false;
+        viewport.classList.remove('is-dragging');
+      };
+
+      viewport.addEventListener('pointerup', endDrag);
+      viewport.addEventListener('pointercancel', endDrag);
+
+      // After a real drag, suppress the click that would otherwise open a card.
+      viewport.addEventListener(
+        'click',
+        (e) => {
+          if (moved) {
+            e.preventDefault();
+            e.stopPropagation();
+            moved = false;
+          }
+        },
+        true
+      );
+
+      // Wheel: scroll horizontally (deltaY maps to horizontal too only when
+      // the user already wheels horizontally; vertical keeps page scroll).
+      viewport.addEventListener(
+        'wheel',
+        (e) => {
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+            viewport.scrollLeft += e.deltaX;
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+    });
+  });
+</script>
