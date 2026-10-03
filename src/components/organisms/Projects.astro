@@ -39,7 +39,7 @@ const categories = [
 
   <!-- Project Lists -->
   <div class="space-y-8">
-    {Object.entries(projects).map(([category, items]) => (
+    {Object.entries(projects).map(([category, items], index) => (
       <div class="project-category" data-category={category}>
         <ProjectCarousel
           title={t(`projects.${category}`)}
@@ -47,6 +47,7 @@ const categories = [
           codeLabel={t('projects.code')}
           demoLabel={t('projects.preview')}
           photosLabel={t('projects.photos')}
+          direction={index % 2 === 0 ? 'right' : 'left'}
         />
       </div>
     ))}
