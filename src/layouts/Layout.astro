@@ -1,6 +1,7 @@
 ---
 import Header from "../components/organisms/Header.astro";
 import Footer from "../components/organisms/Footer.astro";
+import Analytics from "@vercel/analytics/astro";
 import "@fontsource-variable/onest";
 
 interface Props {
@@ -21,6 +22,7 @@ const { description, title, lang = 'es' } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <Analytics />
   </head>
   <body class="relative text-gray-800 dark:text-gray-100 bg-gray-100 dark:bg-neutral-950 min-h-screen">
     <!-- Background -->
