@@ -87,7 +87,7 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         description: t('proj_be_3_desc'),
         tags: [TAGS.JAVA, TAGS.SPRING, TAGS.TYPESCRIPT],
         github: '#',
-        link: 'https://reparaciones-api.onrender.com/swagger-ui/index.html',
+        link: 'https://api-repair.jglabs.tech/swagger-ui/index.html',
         image: '/mobile-repair-swagger.webp',
       },
       {
