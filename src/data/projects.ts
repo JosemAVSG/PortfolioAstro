@@ -40,6 +40,15 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         images: ['/growing.png'],
       },
       {
+        title: t('proj_fe_6_title'),
+        description: t('proj_fe_6_desc'),
+        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        github: '#',
+        link: 'https://fixtra.jglabs.tech/',
+        image: '/fixtra.png',
+        images: ['/fixtra.png'],
+      },
+      {
         title: t('proj_fe_1_title'),
         description: t('proj_fe_1_desc'),
         tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],

@@ -53,6 +53,9 @@
   "proj_fe_5_title": "Crece y Elige",
   "proj_fe_5_desc": "Guías y comparativas de productos para bebé: fichas completas, comparador lado a lado y guías de compra de carritos, sillas de coche, cunas, vigilabebés y tronas.",
 
+  "proj_fe_6_title": "Fixtra",
+  "proj_fe_6_desc": "Landing para software de servicio técnico: órdenes, seguimiento por QR, repuestos, técnicos y facturación para talleres de celulares, computadores y consolas.",
+
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
   "proj_be_2_title": "API Citas Médicas",
