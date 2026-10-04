@@ -49,6 +49,15 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         images: ['/fixtra.png'],
       },
       {
+        title: t('proj_fe_7_title'),
+        description: t('proj_fe_7_desc'),
+        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        github: '#',
+        link: 'https://hazloimpreso.jglabs.tech/menu-generator',
+        image: '/menu-generator.png',
+        images: ['/menu-generator.png'],
+      },
+      {
         title: t('proj_fe_1_title'),
         description: t('proj_fe_1_desc'),
         tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],

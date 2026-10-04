@@ -56,6 +56,9 @@
   "proj_fe_6_title": "Fixtra",
   "proj_fe_6_desc": "Landing para software de servicio técnico: órdenes, seguimiento por QR, repuestos, técnicos y facturación para talleres de celulares, computadores y consolas.",
 
+  "proj_fe_7_title": "Hazlo Impreso - Generador de Menú",
+  "proj_fe_7_desc": "Generador de cartas y menús de restaurante en PDF: elige plantilla, añade platos, opcional QR, descarga PDF listo para imprimir.",
+
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
   "proj_be_2_title": "API Citas Médicas",

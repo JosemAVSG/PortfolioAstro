@@ -56,6 +56,9 @@
   "proj_fe_6_title": "Fixtra",
   "proj_fe_6_desc": "Landing page for repair shop software: work orders, QR tracking, parts inventory, technicians and invoicing for phone, computer and console repair shops.",
 
+  "proj_fe_7_title": "Hazlo Impreso - Menu Generator",
+  "proj_fe_7_desc": "Restaurant menu and card generator in PDF: choose a template, add dishes, optional QR, download a print-ready PDF.",
+
   "proj_be_1_title": "E-commerce API",
   "proj_be_1_desc": "Complete REST API with NestJS, TypeORM, JWT auth and PostgreSQL.",
   "proj_be_2_title": "Medical Appointments API",
