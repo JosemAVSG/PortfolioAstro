@@ -30,12 +30,14 @@
   "exp_hl_alcaldia_3": "Maintained hardware, networks and software of the local IT infrastructure, providing technical support to users.",
   "exp_hl_alcaldia_4": "Automated processes and built internal tools to support operations.",
   "exp_contract_fixed": "Fixed-term contract",
+  "exp_hl_abc_1": "Designed and built an inventory system with the MERN stack (React, Express, Node.js and MongoDB) for the store's administration: authentication and product management.",
+  "exp_hl_abc_2": "Diagnosed and repaired smartphones, computers and other electronic devices.",
+  "exp_hl_abc_3": "Technical support and maintenance of hardware and software for the business's daily operation.",
   "exp_contract_services": "Contractor",
   
   "exp_role_astrolle": "Full Stack Developer",
   
   "exp_role_abc": "Full Stack Developer (MERN)",
-  "exp_desc_abc": "Inventory management system with MERN stack. Authentication, CRUD, query optimization. Technical support and device maintenance.",
   
   "exp_role_alcaldia": "Software Developer (IT Analyst)",
 

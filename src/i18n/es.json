@@ -30,12 +30,14 @@
   "exp_hl_alcaldia_3": "Mantenimiento de hardware, redes y software de la infraestructura TI local, con soporte técnico a los usuarios.",
   "exp_hl_alcaldia_4": "Automatización de procesos y herramientas internas para apoyar las operaciones.",
   "exp_contract_fixed": "Contrato fijo",
+  "exp_hl_abc_1": "Diseñé y desarrollé con el stack MERN (React, Express, Node.js y MongoDB) un sistema de inventario para la administración del local: autenticación y gestión de productos.",
+  "exp_hl_abc_2": "Diagnóstico y reparación de smartphones, computadores y otros dispositivos electrónicos.",
+  "exp_hl_abc_3": "Soporte técnico y mantenimiento de hardware y software para la operación diaria del negocio.",
   "exp_contract_services": "Prestación de servicios",
   
   "exp_role_astrolle": "Desarrollador Full Stack",
   
   "exp_role_abc": "Full Stack Developer (MERN)",
-  "exp_desc_abc": "Sistema de inventario con MERN stack. Autenticación, CRUD, optimización de consultas. Soporte técnico y mantenimiento de dispositivos.",
   
   "exp_role_alcaldia": "Software Developer (IT Analyst)",
 
