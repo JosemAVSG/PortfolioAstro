@@ -26,7 +26,13 @@ const experience = getExperience(lang as 'es' | 'en');
         </div>
         <h4 class="text-lg font-semibold text-black dark:text-white">{exp.role}</h4>
         <p class="text-primary font-medium mb-2">{exp.company}</p>
-        <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">{exp.description}</p>
+        {exp.highlights ? (
+          <ul class="mb-3 list-disc space-y-1 pl-4 text-sm text-gray-600 marker:text-sky-500 dark:text-gray-300">
+            {exp.highlights.map((point) => <li>{point}</li>)}
+          </ul>
+        ) : (
+          <p class="text-gray-600 dark:text-gray-300 text-sm mb-3">{exp.description}</p>
+        )}
         <div class="flex flex-wrap gap-2">
           {exp.tags.map((tag) => (
             <span class="timeline-tag text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-400">

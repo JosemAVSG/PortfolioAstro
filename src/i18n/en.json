@@ -18,11 +18,15 @@
   "experience.learnMore": "Learn more",
 
   "exp_role_agrimanager": "Frontend Web Developer",
+  "exp_hl_agrimanager_1": "Built the Perfil Racimo module end to end: requirements analysis, technical design, implementation, REST API integration, testing and deployment.",
+  "exp_hl_agrimanager_2": "Built a WebView from scratch that connects the web features with the company's mobile app.",
+  "exp_hl_agrimanager_3": "Ongoing maintenance and improvement of production modules: root-cause analysis of bugs and performance and usability improvements.",
+  "exp_hl_astrolle_1": "Developed production-ready modules with a React Micro Frontends architecture, developed and deployed independently.",
+  "exp_hl_astrolle_2": "Designed reusable components and defined API contracts together with the backend team.",
+  "exp_hl_astrolle_3": "Optimized performance and contributed to the evolution of the platform's frontend architecture.",
   "exp_contract_services": "Contractor",
-  "exp_desc_agrimanager": "Frontend development and maintenance. WebView for mobile app. New module development. REST API integration. Tech: React, TypeScript, Zustand.",
   
   "exp_role_astrolle": "Full Stack Developer",
-  "exp_desc_astrolle": "Micro Frontends architecture development with React. REST API implementation. Reusable components creation.",
   
   "exp_role_abc": "Full Stack Developer (MERN)",
   "exp_desc_abc": "Inventory management system with MERN stack. Authentication, CRUD, query optimization. Technical support and device maintenance.",
