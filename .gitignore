@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# editable CV sources (only the PDFs are published)
+public/*.docx
