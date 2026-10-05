@@ -22,6 +22,15 @@ const TAGS: Record<string, TechTag> = {
   SPRING: { name: 'Spring Boot', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
   AWS: { name: 'AWS', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
   TERRAFORM: { name: 'Terraform', class: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300', icon: null as any },
+  ASTRO: { name: 'Astro', class: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300', icon: null as any },
+  PREACT: { name: 'Preact', class: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300', icon: null as any },
+  GSAP: { name: 'GSAP', class: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300', icon: null as any },
+  WOMPI: { name: 'Wompi', class: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300', icon: null as any },
+  MONGO: { name: 'MongoDB', class: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300', icon: null as any },
+  HEXAGONAL: { name: 'Hexagonal', class: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300', icon: null as any },
+  REDUX: { name: 'Redux Toolkit', class: 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300', icon: null as any },
+  ZUSTAND: { name: 'Zustand', class: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300', icon: null as any },
+  DYNAMODB: { name: 'DynamoDB', class: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300', icon: null as any },
   IAC: { name: 'IaC', class: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300', icon: null as any },
 };
 
@@ -29,11 +38,12 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
   const t = useTranslations(lang) as any;
   
   return {
-    frontend: [
+    products: [
       {
         title: t('proj_fe_5_title'),
         description: t('proj_fe_5_desc'),
-        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        featured: 3,
+        tags: [TAGS.ASTRO, TAGS.PREACT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.GSAP],
         github: '#',
         link: 'https://growing.jglabs.tech/',
         image: '/growing.png',
@@ -42,7 +52,8 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
       {
         title: t('proj_fe_6_title'),
         description: t('proj_fe_6_desc'),
-        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        featured: 1,
+        tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.JAVA, TAGS.SPRING, TAGS.HEXAGONAL, TAGS.POSTGRES, TAGS.WOMPI, TAGS.GSAP],
         github: '#',
         link: 'https://fixtra.jglabs.tech/',
         image: '/fixtra.png',
@@ -51,7 +62,7 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
       {
         title: t('proj_fe_7_title'),
         description: t('proj_fe_7_desc'),
-        tags: [TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        tags: [TAGS.NEXT, TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],
         github: '#',
         link: 'https://hazloimpreso.jglabs.tech/menu-generator',
         image: '/menu-generator.png',
@@ -60,7 +71,7 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
       {
         title: t('proj_fe_1_title'),
         description: t('proj_fe_1_desc'),
-        tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],
+        tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT, TAGS.EXPRESS, TAGS.MONGO],
         github: 'https://github.com/JosemAVSG/Sistema-de-inventario-Client',
         link: 'https://sistema-de-inventario-client.vercel.app/',
         image: '/inventory.webp',
@@ -78,31 +89,34 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
       {
         title: t('proj_fe_4_title'),
         description: t('proj_fe_4_desc'),
-        tags: [TAGS.REACT, TAGS.TYPESCRIPT],
+        tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.ZUSTAND, TAGS.EXPRESS, TAGS.POSTGRES],
         github: '#',
         link: 'https://devcoach.app/',
         image: '/devcoach-dashboard.webp',
         images: ['/devcoach-dashboard.webp', '/devcoach.webp'],
+        collaborators: [
+          { name: 'ricardoaot', url: 'https://github.com/ricardoaot' },
+          { name: 'fhdzleon', url: 'https://github.com/fhdzleon' },
+        ],
       },
-    ],
-    backend: [
       {
         title: t('proj_be_1_title'),
         description: t('proj_be_1_desc'),
-        tags: [TAGS.NESTJS, TAGS.TYPEORM, TAGS.TYPESCRIPT],
+        tags: [TAGS.NESTJS, TAGS.TYPEORM, TAGS.TYPESCRIPT, TAGS.POSTGRES],
         github: 'https://github.com/JosemAVSG/PM4-JosemAVSG',
         image: '/EcommerceApi.webp',
       },
       {
         title: t('proj_be_2_title'),
         description: t('proj_be_2_desc'),
-        tags: [TAGS.EXPRESS, TAGS.TYPESCRIPT, TAGS.REACT],
+        tags: [TAGS.REACT, TAGS.REDUX, TAGS.TAILWIND, TAGS.EXPRESS, TAGS.POSTGRES],
         github: 'https://github.com/JosemAVSG/Sistema-de-Citas-PetCare',
         image: '/Petcare.webp',
       },
       {
         title: t('proj_be_4_title'),
         description: t('proj_be_4_desc'),
+        featured: 2,
         tags: [TAGS.NEXT, TAGS.NESTJS, TAGS.TYPESCRIPT, TAGS.POSTGRES],
         github: 'https://github.com/JosemAVSG/Henry_PF',
         link: 'https://www.youtube.com/watch?v=vSBttwQO62k',
@@ -120,7 +134,7 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
       {
         title: t('proj_dev_2_title'),
         description: t('proj_dev_2_desc'),
-        tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.AWS],
+        tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.ZUSTAND, TAGS.AWS],
         github: '#',
         link: 'https://aws-architecture-challenge.vercel.app/',
         image: '/aws-challenge.webp',
@@ -133,7 +147,7 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
       {
         title: t('proj_dev_3_title'),
         description: t('proj_dev_3_desc'),
-        tags: [TAGS.TERRAFORM, TAGS.AWS, TAGS.IAC],
+        tags: [TAGS.TERRAFORM, TAGS.AWS, TAGS.DYNAMODB, TAGS.IAC],
         github: 'https://github.com/JosemAVSG/qr-presence',
         image: '/qr-presence.webp',
       },

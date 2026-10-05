@@ -30,39 +30,41 @@
   "certifications.title": "Certificaciones",
 
   "projects.title": "Proyectos",
-  "projects.all": "Todos",
+  "projects.products": "Productos",
   "projects.frontend": "Frontend",
   "projects.backend": "Backend",
   "projects.devops": "DevOps",
   "projects.code": "Código",
   "projects.preview": "Demo",
+  "projects.with": "Con",
+  "projects.more": "Más proyectos",
   "projects.photos": "Fotos",
 
   "proj_fe_1_title": "Dashboard de Inventario",
-  "proj_fe_1_desc": "Sistema de gestión de inventario en tiempo real con React y Zustand.",
+  "proj_fe_1_desc": "Sistema de gestión de inventario full-stack: cliente en React y Zustand, API REST en Express con MongoDB y documentación Swagger.",
 
   "proj_fe_2_title": "FS Pizzeria",
-  "proj_fe_2_desc": "Aplicación de menú y pedidos para pizzería con React, TypeScript y Supabase.",
+  "proj_fe_2_desc": "Aplicación de menú y pedidos para pizzería con React, TypeScript, Vite, TanStack Query y Supabase.",
 
   "proj_fe_3_title": "Mobile Repair",
   "proj_fe_3_desc": "Aplicación de gestión y reparación de dispositivos móviles con React, TypeScript y Tailwind.",
 
   "proj_fe_4_title": "Dev Coach",
-  "proj_fe_4_desc": "Plataforma para aprender construyendo proyectos reales: genera ideas de proyecto según tu stack y nivel, con guías paso a paso, tareas, pistas y soluciones.",
+  "proj_fe_4_desc": "Proyecto en equipo (3 personas) para aprender construyendo: genera ideas de proyecto según tu stack y nivel, con guías paso a paso, tareas, pistas y soluciones. Frontend en React, TypeScript, Zustand y TanStack Query; API en Express con Prisma, Zod y PostgreSQL.",
 
   "proj_fe_5_title": "Crece y Elige",
-  "proj_fe_5_desc": "Guías y comparativas de productos para bebé: fichas completas, comparador lado a lado y guías de compra de carritos, sillas de coche, cunas, vigilabebés y tronas.",
+  "proj_fe_5_desc": "Guías y comparativas de productos para bebé, hecho 100% en Astro con islas Preact solo donde hay contenido dinámico (comparador lado a lado, filtros). Fichas completas y guías de compra de carritos, sillas de coche, cunas, vigilabebés y tronas.",
 
   "proj_fe_6_title": "Fixtra",
-  "proj_fe_6_desc": "Landing para software de servicio técnico: órdenes, seguimiento por QR, repuestos, técnicos y facturación para talleres de celulares, computadores y consolas.",
+  "proj_fe_6_desc": "SaaS multi-tenant para talleres de reparación de celulares, computadores y consolas: órdenes, seguimiento por QR, técnicos, inventario y facturación. API en Java + Spring Boot con arquitectura hexagonal (puertos y adaptadores) y PostgreSQL, suscripciones con cobro recurrente vía Wompi, frontend en React y landing en Astro animada con GSAP.",
 
   "proj_fe_7_title": "Hazlo Impreso - Generador de Menú",
-  "proj_fe_7_desc": "Generador de cartas y menús de restaurante en PDF: elige plantilla, añade platos, opcional QR, descarga PDF listo para imprimir.",
+  "proj_fe_7_desc": "Generador de cartas y menús de restaurante en PDF hecho con Next.js: elige plantilla, añade platos, QR opcional y descarga un PDF listo para imprimir.",
 
   "proj_be_1_title": "API E-commerce",
-  "proj_be_1_desc": "REST API completa con NestJS, TypeORM, autenticación JWT y PostgreSQL.",
+  "proj_be_1_desc": "API REST de e-commerce con NestJS, TypeORM y PostgreSQL: autenticación JWT, subida de imágenes a Cloudinary y documentación OpenAPI/Swagger.",
   "proj_be_2_title": "API Citas Médicas",
-  "proj_be_2_desc": "Backend con Express, MongoDB y autenticación JWT para gestión de citas.",
+  "proj_be_2_desc": "Sistema de citas full-stack: frontend en React con Redux Toolkit y Tailwind, API REST en Express con PostgreSQL y autenticación JWT con bcrypt.",
   "proj_be_3_title": "Mobile Repair API",
   "proj_be_3_desc": "Backend REST con Java, Spring Boot y autenticación JWT para el sistema de reparación de móviles.",
 
@@ -73,10 +75,10 @@
   "proj_dev_1_desc": "Práctica de Infrastructure as Code con Terraform — ejercicios de básico a avanzado (Terratest), simulando AWS localmente con Floci/LocalStack.",
 
   "proj_dev_2_title": "AWS Architecture Challenge",
-  "proj_dev_2_desc": "Plataforma interactiva para practicar retos de arquitectura AWS con canvas visual, parsing de CloudFormation/Terraform y seguimiento de progreso.",
+  "proj_dev_2_desc": "Plataforma interactiva para practicar retos de arquitectura AWS: arrastrás servicios a un canvas (React Flow), los conectás y una evaluación declarativa te da puntaje y feedback. Parsing de CloudFormation/Terraform, estado con Zustand, validación con Zod y tests con Vitest.",
 
   "proj_dev_3_title": "QR Presence",
-  "proj_dev_3_desc": "Sistema serverless de asistencia y presencia multi-tenant (escuelas y lugares de trabajo): check-in con código QR, validación GPS, notificaciones y reportes. Infraestructura como Código con Terraform y CI/CD con GitHub Actions + OIDC.",
+  "proj_dev_3_desc": "Sistema serverless de asistencia y presencia multi-tenant (escuelas y lugares de trabajo): check-in con QR, validación GPS en Lambda, DynamoDB single-table, notificaciones con SNS y dashboard en S3 + CloudFront. Infraestructura como Código con Terraform y CI/CD con GitHub Actions + OIDC.",
 
   "about.title": "Acerca de mí",
   "about.bio1": "Desarrollador Full Stack orientado a resultados, especializado en JavaScript, React y Node.js. +4 años de experiencia construyendo aplicaciones web escalables y de alto rendimiento.",

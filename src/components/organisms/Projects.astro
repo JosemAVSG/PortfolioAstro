@@ -1,7 +1,7 @@
 ---
 import { useTranslations } from '../../i18n/utils';
 import { getProjects } from '../../data/projects';
-import ProjectCarousel from '../molecules/ProjectCarousel.astro';
+import ProjectCard from '../molecules/ProjectCard.astro';
 import ImageLightbox from '../molecules/ImageLightbox.astro';
 
 interface Props {
@@ -13,11 +13,22 @@ const t = useTranslations(lang as 'es' | 'en');
 const projects = getProjects(lang as 'es' | 'en');
 
 const categories = [
-  { key: 'all', label: t('projects.all') },
-  { key: 'frontend', label: t('projects.frontend') },
-  { key: 'backend', label: t('projects.backend') },
+  { key: 'products', label: t('projects.products') },
   { key: 'devops', label: t('projects.devops') },
 ];
+
+const sections = Object.entries(projects).map(([category, items]) => ({
+  category,
+  featured: items.filter((p) => p.featured).sort((a, b) => a.featured! - b.featured!),
+  rest: items.filter((p) => !p.featured),
+}));
+
+const cardLabels = {
+  codeLabel: t('projects.code'),
+  demoLabel: t('projects.preview'),
+  photosLabel: t('projects.photos'),
+  withLabel: t('projects.with'),
+};
 ---
 
 <div id="projects-section">
@@ -26,8 +37,8 @@ const categories = [
     {categories.map((cat, index) => (
       <button
         class={`tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-          index === 0 
-            ? 'bg-sky-600 text-white shadow-md hover:bg-sky-700' 
+          index === 0
+            ? 'bg-sky-600 text-white shadow-md hover:bg-sky-700'
             : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
         }`}
         data-category={cat.key}
@@ -37,18 +48,32 @@ const categories = [
     ))}
   </div>
 
-  <!-- Project Lists -->
-  <div class="space-y-8">
-    {Object.entries(projects).map(([category, items], index) => (
-      <div class="project-category" data-category={category}>
-        <ProjectCarousel
-          title={t(`projects.${category}`)}
-          items={items}
-          codeLabel={t('projects.code')}
-          demoLabel={t('projects.preview')}
-          photosLabel={t('projects.photos')}
-          direction={index % 2 === 0 ? 'right' : 'left'}
-        />
+  <!-- Project lists: featured (large) first, then the rest in a grid -->
+  <div>
+    {sections.map(({ category, featured, rest }, index) => (
+      <div class="project-category space-y-8" data-category={category} style={index === 0 ? undefined : 'display: none'}>
+        {featured.length > 0 && (
+          <div class="space-y-6">
+            {featured.map((item, i) => (
+              <ProjectCard {...item} {...cardLabels} index={i} featured reverse={i % 2 === 1} />
+            ))}
+          </div>
+        )}
+
+        {rest.length > 0 && (
+          <div>
+            {featured.length > 0 && (
+              <h3 class="mb-4 font-medium text-lg md:text-xl tracking-tight text-gray-900 dark:text-white">
+                {t('projects.more')}
+              </h3>
+            )}
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {rest.map((item, i) => (
+                <ProjectCard {...item} {...cardLabels} index={i} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     ))}
   </div>
@@ -56,34 +81,54 @@ const categories = [
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab-btn');
-    const categories = document.querySelectorAll('.project-category');
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const category = tab.getAttribute('data-category');
-        
-        // Update active tab
-        tabs.forEach(t => {
-          t.classList.remove('bg-sky-600', 'text-white', 'shadow-md', 'hover:bg-sky-700');
-          t.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-400', 'border', 'border-gray-200', 'dark:border-gray-700', 'hover:bg-gray-50', 'dark:hover:bg-gray-700', 'hover:text-gray-900', 'dark:hover:text-white');
-        });
-        tab.classList.add('bg-sky-600', 'text-white', 'shadow-md', 'hover:bg-sky-700');
-        tab.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-400', 'border', 'border-gray-200', 'dark:border-gray-700', 'hover:bg-gray-50', 'dark:hover:bg-gray-700', 'hover:text-gray-900', 'dark:hover:text-white');
+  gsap.registerPlugin(ScrollTrigger);
 
-        // Show/hide categories
-        categories.forEach(cat => {
-          const element = cat as HTMLElement;
-          if (category === 'all') {
-            element.style.display = 'block';
-          } else if (cat.getAttribute('data-category') === category) {
-            element.style.display = 'block';
-          } else {
-            element.style.display = 'none';
-          }
-        });
+  const tabs = document.querySelectorAll('.tab-btn');
+  const categories = document.querySelectorAll<HTMLElement>('.project-category');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const ACTIVE = ['bg-sky-600', 'text-white', 'shadow-md', 'hover:bg-sky-700'];
+  const INACTIVE = ['bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-400', 'border', 'border-gray-200', 'dark:border-gray-700', 'hover:bg-gray-50', 'dark:hover:bg-gray-700', 'hover:text-gray-900', 'dark:hover:text-white'];
+
+  // Cards fade up as they enter the viewport, staggered within each batch.
+  if (!reduceMotion) {
+    const cards = gsap.utils.toArray<HTMLElement>('.project-card');
+    gsap.set(cards, { opacity: 0, y: 28 });
+    ScrollTrigger.batch(cards, {
+      start: 'top 90%',
+      once: true,
+      onEnter: (batch) =>
+        gsap.to(batch, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08, overwrite: true }),
+    });
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const category = tab.getAttribute('data-category');
+
+      tabs.forEach((t) => {
+        t.classList.remove(...ACTIVE);
+        t.classList.add(...INACTIVE);
       });
+      tab.classList.add(...ACTIVE);
+      tab.classList.remove(...INACTIVE);
+
+      categories.forEach((cat) => {
+        cat.style.display = cat.getAttribute('data-category') === category ? 'block' : 'none';
+      });
+
+      const shown = document.querySelectorAll<HTMLElement>(`.project-category[data-category="${category}"] .project-card`);
+      if (!reduceMotion) {
+        gsap.fromTo(
+          shown,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', stagger: 0.07, overwrite: true },
+        );
+      }
+      ScrollTrigger.refresh();
     });
   });
 </script>

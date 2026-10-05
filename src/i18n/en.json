@@ -30,39 +30,41 @@
   "certifications.title": "Certifications",
 
   "projects.title": "Projects",
-  "projects.all": "All",
+  "projects.products": "Products",
   "projects.frontend": "Frontend",
   "projects.backend": "Backend",
   "projects.devops": "DevOps",
   "projects.code": "Code",
   "projects.preview": "Demo",
+  "projects.with": "With",
+  "projects.more": "More projects",
   "projects.photos": "Photos",
 
   "proj_fe_1_title": "Inventory Dashboard",
-  "proj_fe_1_desc": "Real-time inventory management system with React and Zustand.",
+  "proj_fe_1_desc": "Full-stack inventory management system: React and Zustand client, Express REST API with MongoDB and Swagger docs.",
 
   "proj_fe_2_title": "FS Pizzeria",
-  "proj_fe_2_desc": "Pizza menu and ordering app built with React, TypeScript and Supabase.",
+  "proj_fe_2_desc": "Pizza menu and ordering app built with React, TypeScript, Vite, TanStack Query and Supabase.",
 
   "proj_fe_3_title": "Mobile Repair",
   "proj_fe_3_desc": "Mobile device repair and management app built with React, TypeScript and Tailwind.",
 
   "proj_fe_4_title": "Dev Coach",
-  "proj_fe_4_desc": "Platform to learn by building real-world projects: generates project ideas tailored to your stack and level, with step-by-step guides, tasks, hints and solutions.",
+  "proj_fe_4_desc": "Team project (3 people) to learn by building: generates project ideas tailored to your stack and level, with step-by-step guides, tasks, hints and solutions. React, TypeScript, Zustand and TanStack Query frontend; Express API with Prisma, Zod and PostgreSQL.",
 
   "proj_fe_5_title": "Crece y Elige",
-  "proj_fe_5_desc": "Baby product guides and comparisons: full reviews, side-by-side comparison tool and buying guides for strollers, car seats, cribs, baby monitors and high chairs.",
+  "proj_fe_5_desc": "Baby product guides and comparisons, built 100% with Astro and Preact islands only where content is dynamic (side-by-side comparison, filters). Full reviews and buying guides for strollers, car seats, cribs, baby monitors and high chairs.",
 
   "proj_fe_6_title": "Fixtra",
-  "proj_fe_6_desc": "Landing page for repair shop software: work orders, QR tracking, parts inventory, technicians and invoicing for phone, computer and console repair shops.",
+  "proj_fe_6_desc": "Multi-tenant SaaS for phone, computer and console repair shops: work orders, QR tracking, technicians, inventory and invoicing. Java + Spring Boot API with hexagonal architecture (ports and adapters) and PostgreSQL, recurring subscription billing via Wompi, React frontend and an Astro landing animated with GSAP.",
 
   "proj_fe_7_title": "Hazlo Impreso - Menu Generator",
-  "proj_fe_7_desc": "Restaurant menu and card generator in PDF: choose a template, add dishes, optional QR, download a print-ready PDF.",
+  "proj_fe_7_desc": "Restaurant menu and card generator in PDF built with Next.js: choose a template, add dishes, optional QR and download a print-ready PDF.",
 
   "proj_be_1_title": "E-commerce API",
-  "proj_be_1_desc": "Complete REST API with NestJS, TypeORM, JWT auth and PostgreSQL.",
+  "proj_be_1_desc": "E-commerce REST API with NestJS, TypeORM and PostgreSQL: JWT authentication, image uploads to Cloudinary and OpenAPI/Swagger docs.",
   "proj_be_2_title": "Medical Appointments API",
-  "proj_be_2_desc": "Backend with Express, MongoDB and JWT authentication for appointments.",
+  "proj_be_2_desc": "Full-stack appointments system: React frontend with Redux Toolkit and Tailwind, Express REST API with PostgreSQL and JWT authentication with bcrypt.",
   "proj_be_3_title": "Mobile Repair API",
   "proj_be_3_desc": "REST backend with Java, Spring Boot and JWT authentication for the mobile repair system.",
 
@@ -73,10 +75,10 @@
   "proj_dev_1_desc": "Infrastructure as Code practice with Terraform — exercises from basic to advanced (Terratest), simulating AWS locally with Floci/LocalStack.",
 
   "proj_dev_2_title": "AWS Architecture Challenge",
-  "proj_dev_2_desc": "Interactive platform to practice AWS architecture challenges with a visual canvas, CloudFormation/Terraform parsing and progress tracking.",
+  "proj_dev_2_desc": "Interactive platform to practice AWS architecture challenges: drag services onto a canvas (React Flow), connect them and a declarative evaluation returns a score and feedback. CloudFormation/Terraform parsing, Zustand state, Zod validation and Vitest tests.",
 
   "proj_dev_3_title": "QR Presence",
-  "proj_dev_3_desc": "Multi-tenant serverless attendance and presence system (schools and workplaces): QR check-in, GPS validation, notifications and reports. Infrastructure as Code with Terraform and CI/CD with GitHub Actions + OIDC.",
+  "proj_dev_3_desc": "Multi-tenant serverless attendance and presence system (schools and workplaces): QR check-in, GPS validation in Lambda, DynamoDB single-table, SNS notifications and a dashboard on S3 + CloudFront. Infrastructure as Code with Terraform and CI/CD with GitHub Actions + OIDC.",
 
   "about.title": "About me",
   "about.bio1": "Results-oriented Full Stack Developer specialized in JavaScript, React and Node.js. +4 years building scalable, high-performance web applications.",

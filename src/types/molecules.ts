@@ -14,6 +14,11 @@ export interface TechTag {
   icon?: AstroComponent;
 }
 
+export interface Collaborator {
+  name: string;
+  url: string;
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -22,6 +27,9 @@ export interface Project {
   link?: string;
   image: string;
   images?: string[];
+  collaborators?: Collaborator[];
+  /** Rank (1 = first). Featured projects render large above the grid. */
+  featured?: number;
 }
 
 export interface ProjectCardProps extends BaseProps {
@@ -32,6 +40,8 @@ export interface ProjectCardProps extends BaseProps {
   link?: string;
   image: string;
   images?: string[];
+  collaborators?: Collaborator[];
+  withLabel?: string;
   index: number;
 }
 
