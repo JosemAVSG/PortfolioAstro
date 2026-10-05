@@ -20,9 +20,9 @@ export function getExperience(lang: 'es' | 'en') {
       company: 'Astrolle (USA)',
       contract: t('exp_contract_services'),
       location: 'Miami, USA',
-      highlights: [t('exp_hl_astrolle_1'), t('exp_hl_astrolle_2'), t('exp_hl_astrolle_3')],
+      highlights: [t('exp_hl_astrolle_1'), t('exp_hl_astrolle_2'), t('exp_hl_astrolle_3'), t('exp_hl_astrolle_4')],
       type: 'work',
-      tags: ['React', 'TypeScript', 'Micro Frontends', 'REST APIs'],
+      tags: ['React', 'TypeScript', 'Vite', 'Micro Frontends', 'Module Federation', 'REST APIs'],
     },
     {
       period: 'Feb 2023 - Sep 2024',
