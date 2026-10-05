@@ -14,6 +14,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang as 'es' | 'en');
 const years = yearsOfExperience();
+const cvHref = lang === 'en' ? '/CV_Jose_Gonzalez_EN.pdf' : '/CV_Jose_Gonzalez_ES.pdf';
 
 const stack = ['React', 'Node.js', 'Java / Spring Boot', 'AWS', 'Terraform', 'PostgreSQL'];
 
@@ -90,7 +91,7 @@ const socialLinks = [
       <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
     </a>
     <a
-      href="/cv.pdf"
+      href={cvHref}
       download
       class="inline-flex items-center gap-2 rounded-xl border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-900 hover:border-gray-700 active:bg-black"
     >
