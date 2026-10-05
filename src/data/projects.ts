@@ -76,15 +76,6 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         images: ['/fs-pizzeria.png'],
       },
       {
-        title: t('proj_fe_3_title'),
-        description: t('proj_fe_3_desc'),
-        tags: [TAGS.REACT, TAGS.TYPESCRIPT, TAGS.TAILWIND],
-        github: '#',
-        link: 'https://mobile-repair-front.vercel.app/',
-        image: '/Mobilerepair.png',
-        images: ['/Mobilerepair.png', '/Mobilerepair-reparaciones.png'],
-      },
-      {
         title: t('proj_fe_4_title'),
         description: t('proj_fe_4_desc'),
         tags: [TAGS.REACT, TAGS.TYPESCRIPT],
@@ -108,14 +99,6 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
         tags: [TAGS.EXPRESS, TAGS.TYPESCRIPT, TAGS.REACT],
         github: 'https://github.com/JosemAVSG/Sistema-de-Citas-PetCare',
         image: '/Petcare.webp',
-      },
-      {
-        title: t('proj_be_3_title'),
-        description: t('proj_be_3_desc'),
-        tags: [TAGS.JAVA, TAGS.SPRING, TAGS.TYPESCRIPT],
-        github: '#',
-        link: 'https://api-repair.jglabs.tech/swagger-ui/index.html',
-        image: '/mobile-repair-swagger.webp',
       },
       {
         title: t('proj_be_4_title'),
