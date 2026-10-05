@@ -15,10 +15,13 @@ const experience = getExperience(lang as 'es' | 'en');
     <div class="timeline-item relative pl-8">
       <div class="timeline-dot absolute -left-[7px] top-1.5 w-4 h-4 rounded-full bg-primary border-2 border-white dark:border-gray-900"></div>
       <div class="timeline-card transition-[translate] duration-300 hover:translate-x-1">
-        <div class="mb-1">
+        <div class="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1">
           <span class="text-sm text-gray-500 dark:text-gray-400">{exp.period}</span>
           {exp.location && (
-            <span class="text-xs text-gray-400 dark:text-gray-500 ml-2">• {exp.location}</span>
+            <span class="text-xs text-gray-400 dark:text-gray-500">• {exp.location}</span>
+          )}
+          {exp.contract && (
+            <span class="rounded-full border border-sky-200 bg-sky-50 px-2 py-0.5 text-[11px] font-medium text-sky-700 dark:border-sky-800 dark:bg-sky-900/30 dark:text-sky-300">{exp.contract}</span>
           )}
         </div>
         <h4 class="text-lg font-semibold text-black dark:text-white">{exp.role}</h4>

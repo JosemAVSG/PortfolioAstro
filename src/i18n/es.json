@@ -18,6 +18,7 @@
   "experience.learnMore": "Ver más",
 
   "exp_role_agrimanager": "Frontend Web Developer",
+  "exp_contract_services": "Prestación de servicios",
   "exp_desc_agrimanager": "Desarrollo y mantenimiento de módulos frontend. WebView para app móvil. Nuevo módulo completo. Integración REST APIs. Tecnologías: React, TypeScript, Zustand.",
   
   "exp_role_astrolle": "Desarrollador Full Stack",
