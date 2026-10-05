@@ -78,8 +78,8 @@
 
   "proj_be_1_title": "E-commerce API",
   "proj_be_1_desc": "E-commerce REST API with NestJS, TypeORM and PostgreSQL: JWT authentication, image uploads to Cloudinary and OpenAPI/Swagger docs.",
-  "proj_be_2_title": "Medical Appointments API",
-  "proj_be_2_desc": "Full-stack appointments system: React frontend with Redux Toolkit and Tailwind, Express REST API with PostgreSQL and JWT authentication with bcrypt.",
+  "proj_be_2_title": "PetCare - Vet Appointments",
+  "proj_be_2_desc": "Online appointment system for veterinary clinics: pet owners book visits for their pets. React frontend with Redux Toolkit and Tailwind; Express REST API with TypeScript, TypeORM and PostgreSQL, and JWT authentication.",
   "proj_be_3_title": "Mobile Repair API",
   "proj_be_3_desc": "REST backend with Java, Spring Boot and JWT authentication for the mobile repair system.",
 

@@ -109,7 +109,7 @@ export function getProjects(lang: 'es' | 'en'): Record<string, Project[]> {
       {
         title: t('proj_be_2_title'),
         description: t('proj_be_2_desc'),
-        tags: [TAGS.REACT, TAGS.REDUX, TAGS.TAILWIND, TAGS.EXPRESS, TAGS.POSTGRES],
+        tags: [TAGS.REACT, TAGS.REDUX, TAGS.TAILWIND, TAGS.EXPRESS, TAGS.TYPESCRIPT, TAGS.TYPEORM, TAGS.POSTGRES],
         github: 'https://github.com/JosemAVSG/Sistema-de-Citas-PetCare',
         image: '/Petcare.webp',
       },

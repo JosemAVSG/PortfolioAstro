@@ -78,8 +78,8 @@
 
   "proj_be_1_title": "API E-commerce",
   "proj_be_1_desc": "API REST de e-commerce con NestJS, TypeORM y PostgreSQL: autenticación JWT, subida de imágenes a Cloudinary y documentación OpenAPI/Swagger.",
-  "proj_be_2_title": "API Citas Médicas",
-  "proj_be_2_desc": "Sistema de citas full-stack: frontend en React con Redux Toolkit y Tailwind, API REST en Express con PostgreSQL y autenticación JWT con bcrypt.",
+  "proj_be_2_title": "PetCare - Citas Veterinarias",
+  "proj_be_2_desc": "Sistema de turnos online para clínicas veterinarias: los dueños reservan citas para sus mascotas. Frontend en React con Redux Toolkit y Tailwind; API REST en Express con TypeScript, TypeORM y PostgreSQL, y autenticación JWT.",
   "proj_be_3_title": "Mobile Repair API",
   "proj_be_3_desc": "Backend REST con Java, Spring Boot y autenticación JWT para el sistema de reparación de móviles.",
 
