@@ -25,6 +25,10 @@
   "exp_hl_astrolle_2": "Integrating those remote modules into the host application of Astrolle's business platform, ensuring communication, compatibility and a consistent user experience.",
   "exp_hl_astrolle_3": "Design reusable components and define API contracts together with the backend team.",
   "exp_hl_astrolle_4": "Optimize performance and contribute to the evolution of the platform's frontend architecture.",
+  "exp_hl_alcaldia_1": "Designed and built a Java desktop application (NetBeans) with MySQL to manage the municipality's asset inventory.",
+  "exp_hl_alcaldia_2": "Built and maintained the municipality's public web portal with HTML, CSS and JavaScript.",
+  "exp_hl_alcaldia_3": "Maintained hardware, networks and software of the local IT infrastructure, providing technical support to users.",
+  "exp_hl_alcaldia_4": "Automated processes and built internal tools to support operations.",
   "exp_contract_services": "Contractor",
   
   "exp_role_astrolle": "Full Stack Developer",
@@ -33,7 +37,6 @@
   "exp_desc_abc": "Inventory management system with MERN stack. Authentication, CRUD, query optimization. Technical support and device maintenance.",
   
   "exp_role_alcaldia": "Software Developer (IT Analyst)",
-  "exp_desc_alcaldia": "Desktop application in Java for municipal asset management. Institutional web portal. Process automation. Technical support.",
 
   "certifications.external": "(opens in a new tab)",
   "certifications.title": "Certifications",

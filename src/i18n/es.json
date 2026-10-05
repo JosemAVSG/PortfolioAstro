@@ -25,6 +25,10 @@
   "exp_hl_astrolle_2": "Integro esos módulos remotos en la aplicación host de la plataforma empresarial de Astrolle, cuidando la comunicación, la compatibilidad y una experiencia de usuario consistente.",
   "exp_hl_astrolle_3": "Diseño componentes reutilizables y defino contratos de API junto al equipo de backend.",
   "exp_hl_astrolle_4": "Optimizo el rendimiento y aporto a la evolución de la arquitectura frontend de la plataforma.",
+  "exp_hl_alcaldia_1": "Diseñé y desarrollé una aplicación de escritorio en Java (NetBeans) con MySQL para gestionar el inventario de bienes municipales.",
+  "exp_hl_alcaldia_2": "Construí y mantuve el portal web institucional de la alcaldía con HTML, CSS y JavaScript.",
+  "exp_hl_alcaldia_3": "Mantenimiento de hardware, redes y software de la infraestructura TI local, con soporte técnico a los usuarios.",
+  "exp_hl_alcaldia_4": "Automatización de procesos y herramientas internas para apoyar las operaciones.",
   "exp_contract_services": "Prestación de servicios",
   
   "exp_role_astrolle": "Desarrollador Full Stack",
@@ -33,7 +37,6 @@
   "exp_desc_abc": "Sistema de inventario con MERN stack. Autenticación, CRUD, optimización de consultas. Soporte técnico y mantenimiento de dispositivos.",
   
   "exp_role_alcaldia": "Software Developer (IT Analyst)",
-  "exp_desc_alcaldia": "Aplicación de escritorio en Java para gestión de activos. Portal web institucional. Automatización de procesos. Soporte técnico redes y sistemas.",
 
   "certifications.external": "(se abre en una pestaña nueva)",
   "certifications.title": "Certificaciones",

@@ -38,9 +38,9 @@ export function getExperience(lang: 'es' | 'en') {
       role: t('exp_role_alcaldia'),
       company: 'Alcaldía de Caripe',
       location: 'Monagas, Venezuela',
-      description: t('exp_desc_alcaldia'),
+      highlights: [t('exp_hl_alcaldia_1'), t('exp_hl_alcaldia_2'), t('exp_hl_alcaldia_3'), t('exp_hl_alcaldia_4')],
       type: 'work',
-      tags: ['Java', 'HTML', 'CSS', 'JavaScript', 'PostgreSQL'],
+      tags: ['Java', 'NetBeans', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Networking'],
     },
   ];
 }
