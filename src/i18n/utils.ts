@@ -14,11 +14,20 @@ export const translations = {
 export type Lang = keyof typeof languages;
 export type TranslationKey = (keyof typeof es) | string;
 
+// First professional role (Alcaldía de Caripe, Feb 2021). Evaluated at build time.
+const CAREER_START = new Date(2021, 1, 1);
+
+export function yearsOfExperience(now: Date = new Date()): number {
+  const months = (now.getFullYear() - CAREER_START.getFullYear()) * 12 + (now.getMonth() - CAREER_START.getMonth());
+  return Math.max(0, Math.floor(months / 12));
+}
+
 export function useTranslations(lang: Lang) {
   return function t(key: TranslationKey): string {
     const dict = translations[lang] as Record<string, string>;
     const fallback = translations.es as Record<string, string>;
-    return dict[key] || fallback[key] || key;
+    const value = dict[key] || fallback[key] || key;
+    return value.replace('{years}', String(yearsOfExperience()));
   };
 }
 

@@ -7,9 +7,11 @@
 
   "hero.title": "I'm Jose Miguel González",
   "hero.greetingFinal": "Hello",
-  "hero.subtitle": "Full Stack Developer specialized in React, Node.js and cloud solutions. AWS Certified Solutions Architect – Associate. +4 years building scalable, high-performance applications.",
+  "hero.subtitle": "Full Stack Developer specialized in React, Node.js and cloud solutions. AWS Certified Solutions Architect – Associate. +{years} years building scalable, high-performance applications.",
   "hero.openToWork": "Open to Work",
   "hero.cta": "View projects",
+  "hero.years": "years of experience",
+  "hero.stack": "Stack",
   "hero.downloadCv": "Download CV",
 
   "experience.title": "Professional Experience",
@@ -82,10 +84,10 @@
   "proj_dev_3_desc": "Multi-tenant serverless attendance and presence system (schools and workplaces): QR check-in, GPS validation in Lambda, DynamoDB single-table, SNS notifications and a dashboard on S3 + CloudFront. Infrastructure as Code with Terraform and CI/CD with GitHub Actions + OIDC.",
 
   "about.title": "About me",
-  "about.bio1": "Results-oriented Full Stack Developer specialized in JavaScript, React and Node.js. +4 years building scalable, high-performance web applications.",
+  "about.bio1": "Results-oriented Full Stack Developer specialized in JavaScript, React and Node.js. +{years} years building scalable, high-performance web applications.",
   "about.bio2": "Experience with REST APIs, modular architectures, databases (PostgreSQL, MongoDB, MySQL), Redux/Zustand, and AWS Solutions Architect certification.",
   "about.bio3": "Computer Science Technical Degree (UPTNM). Full Stack Developer from Soy Henry Bootcamp. Passionate about creating impactful solutions and teamwork.",
 
   "footer.copyright": "Made with ❤️ by JosemAVSG",
-  "meta.description": "Jose Miguel González - Full Stack Developer specialized in React, Node.js, AWS. +4 years of experience in scalable applications."
+  "meta.description": "Jose Miguel González - Full Stack Developer specialized in React, Node.js, AWS. +{years} years of experience in scalable applications."
 }

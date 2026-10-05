@@ -1,5 +1,5 @@
 ---
-import { useTranslations } from '../../i18n/utils';
+import { useTranslations, yearsOfExperience } from '../../i18n/utils';
 import Badge from '../atoms/Badge.astro';
 import SocialLink from '../molecules/SocialLink.astro';
 import Linkedin from '../../icons/Linkedin.astro';
@@ -13,6 +13,9 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang as 'es' | 'en');
+const years = yearsOfExperience();
+
+const stack = ['React', 'Node.js', 'Java / Spring Boot', 'AWS', 'Terraform', 'PostgreSQL'];
 
 const socialLinks = [
   { href: 'https://www.linkedin.com/in/josemavsg', label: 'LinkedIn', icon: Linkedin },
@@ -34,7 +37,7 @@ const socialLinks = [
         target="_blank"
         rel="noopener"
       >
-        <Badge>Open to Work</Badge>
+        <Badge>{t('hero.openToWork')}</Badge>
       </a>
       <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Colombia, Cali</p>
     </div>
@@ -59,10 +62,18 @@ const socialLinks = [
     {t('hero.title')}
   </h1>
 
-  <h2 class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+  <h2 class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
     {t('hero.subtitle')}
   </h2>
-<div class="flex flex-row justify-between items-center">
+
+  <ul class="mb-6 flex list-none flex-wrap items-center gap-2 p-0" aria-label={t('hero.stack')}>
+    {stack.map((tech) => (
+      <li class="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+        {tech}
+      </li>
+    ))}
+  </ul>
+<div class="flex flex-wrap justify-between items-center gap-4">
 
   <ul class="flex flex-wrap gap-4 list-none p-0 m-0">
     {socialLinks.map((link) => (
@@ -70,21 +81,30 @@ const socialLinks = [
     ))}
   </ul>
 
-  <a
-    href="/cv.pdf"
-    download
-    class="mt-6 inline-flex items-center gap-2 rounded-xl border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-900 hover:border-gray-700 active:bg-black"
-  >
-    <Download class="size-4" />
-    {t('hero.downloadCv')}
-  </a>
+  <div class="mt-6 flex flex-wrap items-center gap-3">
+    <a
+      href="#projects"
+      class="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-4 py-2 text-sm font-semibold text-white shadow-md transition hover:bg-sky-700 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring focus-visible:ring-yellow-500/80 focus-visible:ring-offset-2"
+    >
+      {t('hero.cta')}
+      <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </a>
+    <a
+      href="/cv.pdf"
+      download
+      class="inline-flex items-center gap-2 rounded-xl border border-gray-600 bg-gray-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-900 hover:border-gray-700 active:bg-black"
+    >
+      <Download class="size-4" />
+      {t('hero.downloadCv')}
+    </a>
+  </div>
 </div>
 
   <!-- Quick Stats -->
   <div class="flex flex-wrap gap-6 mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
     <div>
-      <span class="text-2xl font-bold text-primary">+4</span>
-      <span class="text-sm text-gray-500 dark:text-gray-400 ml-1">years</span>
+      <span class="text-2xl font-bold text-primary">+{years}</span>
+      <span class="text-sm text-gray-500 dark:text-gray-400 ml-1">{t('hero.years')}</span>
     </div>
     <div>
       <span class="text-2xl font-bold text-primary">AWS</span>
