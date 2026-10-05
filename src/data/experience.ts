@@ -37,6 +37,7 @@ export function getExperience(lang: 'es' | 'en') {
       period: 'Feb 2021 - Feb 2023',
       role: t('exp_role_alcaldia'),
       company: 'Alcaldía de Caripe',
+      contract: t('exp_contract_fixed'),
       location: 'Monagas, Venezuela',
       highlights: [t('exp_hl_alcaldia_1'), t('exp_hl_alcaldia_2'), t('exp_hl_alcaldia_3'), t('exp_hl_alcaldia_4')],
       type: 'work',
